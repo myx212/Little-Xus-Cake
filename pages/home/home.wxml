@@ -1,0 +1,122 @@
+<!--pages/home/home.wxml-->
+<view class="page-container">
+
+  <!-- 顶部品牌区 -->
+  <view class="brand-area">
+    <image
+      class="brand-logo"
+      src="/images/home/logo.png"
+      mode="aspectFit"
+    />
+    <image
+      class="brand-decor"
+      src="/images/home/decor_kitchen_tools.png"
+      mode="aspectFit"
+    />
+  </view>
+
+  <!-- 核心插画区 -->
+  <view class="illustration-area">
+    <image
+      class="illustration-img"
+      src="/images/home/illustration_bakery.png"
+      mode="widthFix"
+    />
+  </view>
+
+  <!-- 会员卡片区 -->
+  <view class="member-cards">
+    <view class="member-card color-top" bindtap="onMemberRecharge">
+      <view class="card-content">
+        <text class="card-title">会员充值</text>
+        <view class="card-btn">
+          <text class="card-btn-text">点击查看 ></text>
+        </view>
+      </view>
+      <image class="card-image" src="/images/home/account.png" mode="aspectFit" />
+      <view class="card-brand">
+        <text class="card-brand-text">Little Xu's Cake</text>
+      </view>
+    </view>
+    <view class="member-card  color-next" bindtap="onMemberPoints">
+      <view class="card-content">
+        <text class="card-title">会员积分</text>
+        <view class="card-btn">
+          <text class="card-btn-text">点击查看 ></text>
+        </view>
+      </view>
+      <image class="card-image" src="/images/home/icon.png" mode="aspectFit" />
+      <view class="card-brand">
+        <text class="card-brand-text">Little Xu's Cake</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能按钮区 -->
+  <view class="function-area">
+    <view class="func-btn" bindtap="onFuncTap" data-type="dineIn">
+      <image
+        class="func-icon"
+        src="/images/home/btn_dine_in.png"
+        mode="aspectFit"
+      />
+      <text class="func-title">堂食扫码</text>
+      <text class="func-sub">DINE IN</text>
+    </view>
+    <view class="func-btn" bindtap="onFuncTap" data-type="pickUp">
+      <image
+        class="func-icon"
+        src="/images/home/btn_pick_up.png"
+        mode="aspectFit"
+      />
+      <text class="func-title">自提</text>
+      <text class="func-sub">PICK UP</text>
+    </view>
+    <view class="func-btn" bindtap="onFuncTap" data-type="deliver">
+      <image
+        class="func-icon"
+        src="/images/home/btn_deliver.png"
+        mode="aspectFit"
+      />
+      <text class="func-title">外卖</text>
+      <text class="func-sub">DELIVER</text>
+    </view>
+  </view>
+
+  <!-- AI 甜品顾问悬浮按钮 -->
+  <view class="ai-float-btn" bindtap="onAiOrder">
+    <image class="ai-float-img" src="/images/ai/new.png" mode="aspectFit" />
+    <view class="ai-float-label">
+      <text class="ai-float-text">AI点餐</text>
+    </view>
+  </view>
+
+  <!-- VIP 卡片 -->
+  <!-- <view class="vip-card" bindtap="onMemberRecharge">
+    <view class="vip-text-area">
+      <text class="vip-title">Wuli</text>
+      <text class="vip-subtitle">Cafe & Bakery</text>
+      <text class="vip-big">VIP</text>
+    </view>
+    <image class="vip-image" src="/images/gift/gift6.png" mode="aspectFit" />
+  </view> -->
+
+  <!-- 店铺插画区 -->
+  <view class="store-illustration-area">
+    <image
+      class="store-illustration-img"
+      src="/images/home/banner-bottom.png"
+      mode="widthFix"
+    />
+    <view class="store-text-area">
+      <text class="store-text">一家小店 每日现做 没有固定菜单</text>
+      <text class="store-text">希望能分享一些喜欢的味道</text>
+      <text class="store-text-en">No one but you.</text>
+      <text class="store-text">祝你好运常在！</text>
+    </view>
+  </view>
+
+  <!-- 底部自定义导航 -->
+  <custom-tabbar currentTab="{{0}}" />
+
+</view>

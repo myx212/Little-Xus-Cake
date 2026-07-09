@@ -14,7 +14,10 @@
     "pages/address-map/address-map",
     "pages/address-edit/address-edit",
     "pages/points/points",
-    "pages/recharge/recharge"
+    "pages/recharge/recharge",
+    "pages/ai-order/ai-order",
+    "pages/ai-confirm-order/ai-confirm-order",
+    "pages/ai-pay-success/ai-pay-success"
   ],
   "window": {
     "navigationBarTitleText": "Little Xu's Cake",

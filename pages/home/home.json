@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Little Xu's Cake",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "custom-tabbar": "/components/custom-tabbar/custom-tabbar"
+  }
+}

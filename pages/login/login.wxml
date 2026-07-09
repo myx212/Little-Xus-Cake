@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<view class="login-page">
+
+  <!-- 全屏背景图 -->
+  <image class="bg-image" src="/images/home/login.png" mode="aspectFill" />
+
+  <!-- 右上角小标 -->
+  <view class="corner-badge">
+    <text class="badge-text">面包脑袋冲啊~！</text>
+  </view>
+
+  <!-- 底部登录按钮（选择头像后直接登录） -->
+  <view class="login-btn-area">
+    <button class="login-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <text class="login-btn-text">微信授权登录</text>
+    </button>
+  </view>
+
+</view>
