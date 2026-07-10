@@ -1,0 +1,160 @@
+<!--pages/order-list/order-list.wxml-->
+<view class="order-list-page">
+
+  <!-- 顶部Tab -->
+  <view class="top-tabs">
+    <view class="tab-item {{currentTab === 'all' ? 'active' : ''}}" bindtap="onTabChange" data-tab="all">全部</view>
+    <view class="tab-item {{currentTab === 'pending' ? 'active' : ''}}" bindtap="onTabChange" data-tab="pending">待付款</view>
+    <view class="tab-item {{currentTab === 'using' ? 'active' : ''}}" bindtap="onTabChange" data-tab="using">待使用</view>
+    <view class="tab-item {{currentTab === 'delivering' ? 'active' : ''}}" bindtap="onTabChange" data-tab="delivering">待收货</view>
+    <view class="tab-item {{currentTab === 'review' ? 'active' : ''}}" bindtap="onTabChange" data-tab="review">待评价</view>
+    <view class="tab-item {{currentTab === 'completed' ? 'active' : ''}}" bindtap="onTabChange" data-tab="completed">已完成</view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view class="order-scroll" scroll-y>
+    <view class="order-card" wx:for="{{orderList}}" wx:key="_id">
+      <!-- 订单头部 -->
+      <view class="order-header">
+        <view class="header-left">
+          <text class="delivery-tag {{item.deliveryMode === 'deliver' ? 'deliver' : 'pickup'}}">{{item.deliveryMode === 'deliver' ? '外卖' : '自取'}}</text>
+          <text class="order-no">订单号: {{item.orderNo}}</text>
+        </view>
+        <text class="order-status">{{item.statusText}}</text>
+      </view>
+
+      <!-- 商品信息：多商品模式（goodsList 数组） -->
+      <block wx:if="{{item.goodsList && item.goodsList.length > 0}}">
+        <view class="order-body">
+          <view class="multi-goods-list">
+            <view class="multi-goods-item" wx:for="{{item.goodsList}}" wx:for-item="goods" wx:key="goodsId">
+              <image class="order-img multi-img" src="{{goods.image}}" mode="aspectFill" />
+              <view class="order-info">
+                <text class="order-name">{{goods.name}}</text>
+                <text class="order-desc multi-desc" wx:if="{{goods.remark}}">{{goods.remark}}</text>
+                <view class="order-bottom">
+                  <text class="order-price">¥{{goods.price}}</text>
+                  <text class="order-qty">x{{goods.quantity}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 卡片级备注（下单时填的备注） -->
+        <view class="order-remark" wx:if="{{item.remark}}">
+          <text class="remark-label">备注：</text>
+          <text class="remark-text">{{item.remark}}</text>
+        </view>
+      </block>
+
+      <!-- 商品信息：老数据兼容（单商品模式） -->
+      <view class="order-body" wx:else>
+        <image class="order-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="order-info">
+          <text class="order-name">{{item.name}}</text>
+          <text class="order-desc">{{item.description}}</text>
+          <view class="order-bottom">
+            <text class="order-price">¥{{item.price}}</text>
+            <text class="order-qty">x{{item.quantity}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 订单底部 -->
+      <view class="order-footer">
+        <text class="order-time">下单时间: {{item.createTimeStr}}</text>
+        <text class="order-total">合计: ¥{{item.totalAmount}}</text>
+      </view>
+
+      <!-- 操作按钮：待付款 -->
+      <view class="order-actions" wx:if="{{item.status === 'pending'}}">
+        <view class="action-btn outline" bindtap="onContact">
+          <text class="action-text">联系客服</text>
+        </view>
+        <view class="action-btn outline" bindtap="onConfirmReceive" data-id="{{item._id}}">
+          <text class="action-text">我已取餐</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onContinuePay" data-id="{{item._id}}">
+          <text class="action-text">继续付款</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮：待使用 -->
+      <view class="order-actions" wx:elif="{{item.status === 'using'}}">
+        <view class="action-btn outline" bindtap="onReorder" data-id="{{item._id}}">
+          <text class="action-text">再来一单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onDeleteOrder" data-id="{{item._id}}">
+          <text class="action-text">删除订单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onViewOrder" data-id="{{item._id}}">
+          <text class="action-text">查看订单</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onReview" data-id="{{item._id}}">
+          <text class="action-text">评价</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮：待取餐（ready） -->
+      <view class="order-actions" wx:elif="{{item.status === 'ready'}}">
+        <view class="action-btn outline" bindtap="onViewOrder" data-id="{{item._id}}">
+          <text class="action-text">查看订单</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onConfirmReceive" data-id="{{item._id}}">
+          <text class="action-text">我已取餐</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮：待收货 -->
+      <view class="order-actions" wx:elif="{{item.status === 'delivering'}}">
+        <view class="action-btn outline" bindtap="onViewOrder" data-id="{{item._id}}">
+          <text class="action-text">查看订单</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onConfirmReceive" data-id="{{item._id}}">
+          <text class="action-text">确认收货</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮：待评价 -->
+      <view class="order-actions" wx:elif="{{item.status === 'review'}}">
+        <view class="action-btn outline" bindtap="onReorder" data-id="{{item._id}}">
+          <text class="action-text">再来一单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onDeleteOrder" data-id="{{item._id}}">
+          <text class="action-text">删除订单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onViewOrder" data-id="{{item._id}}">
+          <text class="action-text">查看订单</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onReview" data-id="{{item._id}}">
+          <text class="action-text">评价</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮：已完成 -->
+      <view class="order-actions" wx:elif="{{item.status === 'completed'}}">
+        <view class="action-btn outline" bindtap="onReorder" data-id="{{item._id}}">
+          <text class="action-text">再来一单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onDeleteOrder" data-id="{{item._id}}">
+          <text class="action-text">删除订单</text>
+        </view>
+        <view class="action-btn outline" bindtap="onViewOrder" data-id="{{item._id}}">
+          <text class="action-text">查看订单</text>
+        </view>
+        <view class="action-btn highlight" bindtap="onReview" data-id="{{item._id}}">
+          <text class="action-text">评价</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{orderList.length === 0}}">
+      <text class="empty-text">暂无订单</text>
+    </view>
+  </scroll-view>
+
+  <!-- 底部自定义导航 -->
+  <custom-tabbar currentTab="{{2}}" />
+
+</view>

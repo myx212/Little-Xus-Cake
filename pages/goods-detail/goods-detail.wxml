@@ -1,0 +1,77 @@
+<!--pages/goods-detail/goods-detail.wxml-->
+<view class="detail-page">
+
+  <!-- 商品大图 -->
+  <image
+    class="detail-banner"
+    src="{{goods.image}}"
+    mode="widthFix"
+  />
+
+  <!-- 商品信息区 -->
+  <view class="goods-section">
+    <text class="detail-name">{{goods.name}}</text>
+    <text class="detail-price">¥{{goods.price}}</text>
+    <text class="detail-desc">{{goods.description}}</text>
+  </view>
+
+  <!-- 备注输入框 -->
+  <view class="remark-section">
+    <text class="section-title">备注</text>
+    <textarea
+      class="remark-input"
+      placeholder="填写口味偏好等要求"
+      maxlength="100"
+      value="{{remark}}"
+      bindinput="onRemarkInput"
+    />
+  </view>
+
+  <!-- 商品详情区 -->
+  <view class="info-section">
+    <text class="section-title">商品详情</text>
+    <text class="info-text">暂无详情</text>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <!-- 第一行：价格 + 数量 -->
+    <view class="bottom-row">
+      <text class="bottom-price">¥{{goods.price}}</text>
+      <view class="quantity-control">
+        <view class="qty-btn {{quantity <= 1 ? 'disabled' : ''}}" bindtap="onQtyMinus">
+          <text class="qty-icon">−</text>
+        </view>
+        <text class="qty-num">{{quantity}}</text>
+        <view class="qty-btn" bindtap="onQtyPlus">
+          <text class="qty-icon">+</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 第二行：图标 + 按钮 -->
+    <view class="bottom-row bottom-row-btns">
+      <view class="bottom-icons">
+        <view class="icon-item" bindtap="onShare">
+          <text class="icon-emoji">↗</text>
+          <text class="icon-label">分享</text>
+        </view>
+        <view class="icon-item icon-item-cart" bindtap="onGoCart">
+          <image class="cart-icon-img" src="/images/home/cart.png" mode="aspectFit" />
+          <view class="cart-badge" wx:if="{{cartTotal > 0}}">{{cartTotal > 99 ? '99+' : cartTotal}}</view>
+          <text class="icon-label">购物车</text>
+        </view>
+      </view>
+
+      <view class="action-btns">
+        <view class="btn-cart" bindtap="onAddCart">
+          <text class="btn-text">加入购物车</text>
+        </view>
+        <view class="btn-buy" bindtap="onBuyNow">
+          <text class="btn-text">立即购买</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

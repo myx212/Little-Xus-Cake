@@ -1,0 +1,115 @@
+<!--pages/cart/cart.wxml-->
+<view class="cart-page">
+
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <!-- <text class="header-title">暖焙坊</text> -->
+  </view>
+
+  <!-- 购物车列表 -->
+  <view class="cart-list" wx:if="{{cartList.length > 0}}">
+    <view class="cart-card" wx:for="{{cartList}}" wx:key="_id">
+      <!-- 选择圆圈 -->
+      <view
+        class="check-circle {{item.checked ? 'checked' : ''}}"
+        bindtap="onToggleCheck"
+        data-id="{{item._id}}"
+      >
+        <text wx:if="{{item.checked}}" class="check-mark">✓</text>
+      </view>
+
+      <!-- 商品图 -->
+      <image
+        class="cart-img"
+        src="{{item.image}}"
+        mode="aspectFill"
+        bindtap="onGoDetail"
+        data-id="{{item.goodsId}}"
+      />
+
+      <!-- 商品信息 -->
+      <view class="cart-info" bindtap="onGoDetail" data-id="{{item.goodsId}}">
+        <text class="cart-name">{{item.name}}</text>
+        <text class="cart-spec">单份装 / 经典原味</text>
+
+        <!-- 数量控制 -->
+        <view class="cart-qty">
+          <view class="qty-btn" catchtap="onQtyMinus" data-id="{{item._id}}">
+            <text class="qty-icon">−</text>
+          </view>
+          <text class="qty-num">{{item.quantity}}</text>
+          <view class="qty-btn" catchtap="onQtyPlus" data-id="{{item._id}}">
+            <text class="qty-icon">+</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 价格 -->
+      <view class="cart-price">
+        <text class="price-text">¥{{item.totalPrice}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空购物车 -->
+  <view class="empty-cart" wx:else>
+    <text class="empty-icon"></text>
+    <text class="empty-text">购物车还是空的</text>
+    <text class="empty-hint">快去挑选喜欢的面包吧</text>
+    <view class="empty-btn" bindtap="onGoOrder">
+      <text class="empty-btn-text">去点餐</text>
+    </view>
+  </view>
+
+  <!-- 优惠减免区 -->
+  <view class="coupon-section" wx:if="{{cartList.length > 0}}">
+    <text class="coupon-title">优惠减免</text>
+    <view class="coupon-card" wx:if="{{hasCoupon}}" bindtap="onToggleCoupon">
+      <view class="coupon-left">
+        <text class="coupon-icon"></text>
+        <view class="coupon-info">
+          <text class="coupon-name">{{couponName}}</text>
+          <text class="coupon-desc">满{{couponThreshold}}减{{couponReduce}}元</text>
+        </view>
+      </view>
+      <text class="coupon-action {{couponUsed ? 'coupon-used' : ''}}">{{couponUsed ? '已使用' : '去使用'}}</text>
+    </view>
+    <view class="coupon-card" wx:else>
+      <view class="coupon-left">
+        <text class="coupon-icon">🎟</text>
+        <view class="coupon-info">
+          <text class="coupon-name">暂无可用优惠券</text>
+          <text class="coupon-desc">集满6个章即可获得满减券</text>
+        </view>
+      </view>
+    </view>
+    <view class="coupon-discount-line" wx:if="{{couponDiscount > 0}}">
+      <text class="discount-text">优惠减免</text>
+      <text class="discount-amount">-¥{{couponDiscount}}</text>
+    </view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar" wx:if="{{cartList.length > 0}}">
+    <!-- 全选 -->
+    <view class="select-all" bindtap="onToggleAll">
+      <view class="check-circle {{allChecked ? 'checked' : ''}}">
+        <text wx:if="{{allChecked}}" class="check-mark">✓</text>
+      </view>
+      <text class="select-all-text">全选</text>
+    </view>
+
+    <!-- 合计 -->
+    <view class="total-section">
+      <text class="total-label">合计:</text>
+      <text class="total-price">¥{{finalAmount}}</text>
+      <text class="total-original" wx:if="{{couponDiscount > 0}}">¥{{totalAmount}}</text>
+    </view>
+
+    <!-- 去结算按钮 -->
+    <view class="checkout-btn" bindtap="onCheckout">
+      <text class="checkout-text">去结算({{checkedCount}})</text>
+    </view>
+  </view>
+
+</view>

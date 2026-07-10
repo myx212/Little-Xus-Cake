@@ -1,0 +1,10 @@
+/* index.wxss */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #FFF9F0;
+  color: #C4956A;
+  font-size: 32rpx;
+}

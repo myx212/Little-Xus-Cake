@@ -1,0 +1,148 @@
+<!--pages/confirm-order/confirm-order.wxml-->
+<view class="confirm-page">
+
+  <!-- 店铺信息 -->
+  <view class="shop-info">
+    <text class="shop-name">Little Xu's Cake</text>
+    <view class="delivery-tags">
+      <text class="tag {{deliveryMode === 'pickup' ? 'active' : ''}}" bindtap="onDeliveryTap" data-mode="pickup">自取</text>
+      <text class="tag {{deliveryMode === 'deliver' ? 'active' : ''}}" bindtap="onDeliveryTap" data-mode="deliver">外卖</text>
+    </view>
+  </view>
+
+  <!-- 联系电话（仅自取模式显示，外卖模式使用地址中的电话） -->
+  <view class="form-row" wx:if="{{deliveryMode === 'pickup'}}">
+    <text class="form-label">联系电话</text>
+    <input class="form-input" type="number" placeholder="请输入联系电话" value="{{phone}}" bindinput="onPhoneInput" />
+  </view>
+
+  <!-- 配送地址（仅外卖模式显示） -->
+  <view class="form-row" wx:if="{{deliveryMode === 'deliver'}}" bindtap="onSelectAddress">
+    <text class="form-label">配送地址</text>
+    <view class="form-value">
+      <text class="value-text {{deliveryAddress ? '' : 'placeholder'}}">{{deliveryAddress ? deliveryAddress.contactName + ' ' + deliveryAddress.phone + ' ' + deliveryAddress.address : '请选择配送地址'}}</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+
+  <!-- 取餐时间 -->
+  <view class="form-row" bindtap="onPickTime">
+    <text class="form-label">取餐时间</text>
+    <view class="form-value">
+      <text class="value-text">{{pickTime || '最早3小时后可取餐'}}</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+
+  <!-- 卡片留言 -->
+  <view class="form-row" bindtap="onRemark">
+    <text class="form-label">卡片留言</text>
+    <view class="form-value">
+      <text class="value-text {{remark ? '' : 'placeholder'}}">{{remark || '点击填写卡片内容'}}</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="goods-section">
+    <view class="confirm-goods-item" wx:for="{{goodsList}}" wx:key="_id">
+      <image class="goods-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="goods-info">
+        <text class="goods-name">{{item.name}}</text>
+        <text class="goods-desc">{{item.description}}</text>
+        <view class="goods-bottom">
+          <text class="goods-price">¥{{item.price}}</text>
+          <text class="goods-qty">x{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 价格明细 -->
+  <view class="price-section">
+    <text class="section-title">价格明细</text>
+    <view class="price-row">
+      <view class="price-label-area">
+        <text class="price-tag">商</text>
+        <text class="price-label">商品总价</text>
+      </view>
+      <text class="price-value">¥{{totalAmount}}</text>
+    </view>
+    <text class="price-count">共{{totalCount}}件商品</text>
+    <view class="price-row" wx:if="{{deliveryMode === 'deliver' && deliveryFee > 0}}">
+      <view class="price-label-area">
+        <text class="price-tag">配</text>
+        <text class="price-label">配送费</text>
+      </view>
+      <text class="price-value">¥{{deliveryFee}}</text>
+    </view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar">
+    <view class="bottom-left">
+      <text class="pay-label">待支付</text>
+      <text class="pay-price">¥{{finalAmount}}</text>
+    </view>
+    <view class="pay-btn" bindtap="onPay">
+      <text class="pay-btn-text">付款</text>
+    </view>
+  </view>
+
+  <!-- 支付选择弹窗 -->
+  <view class="modal-mask" wx:if="{{showPayModal}}" bindtap="onCloseModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <text class="modal-title">选择支付方式</text>
+
+      <!-- 钱包支付 -->
+      <view class="pay-method-item" bindtap="onSelectPayMethod" data-method="wallet">
+        <view class="pay-method-left">
+          <text class="pay-method-name">钱包支付</text>
+          <text class="pay-method-balance">余额 ¥{{walletBalance}}</text>
+        </view>
+        <view class="pay-method-check {{payMethod === 'wallet' ? 'checked' : ''}}">
+          <text class="check-icon" wx:if="{{payMethod === 'wallet'}}">✓</text>
+        </view>
+      </view>
+
+      <!-- 微信支付 -->
+      <view class="pay-method-item" bindtap="onSelectPayMethod" data-method="wechat">
+        <view class="pay-method-left">
+          <text class="pay-method-name">微信支付（模拟）</text>
+        </view>
+        <view class="pay-method-check {{payMethod === 'wechat' ? 'checked' : ''}}">
+          <text class="check-icon" wx:if="{{payMethod === 'wechat'}}">✓</text>
+        </view>
+      </view>
+
+      <!-- 钱包余额不足提示 -->
+      <view class="balance-hint" wx:if="{{payMethod === 'wallet' && walletBalance < totalAmount}}">
+        <text class="hint-text">钱包余额不足，差额 ¥{{wechatPayAmount}} 需微信支付</text>
+      </view>
+
+      <view class="modal-btns">
+        <view class="modal-btn cancel" bindtap="onCancelPay">
+          <text class="modal-btn-text cancel-text">取消</text>
+        </view>
+        <view class="modal-btn confirm" bindtap="onConfirmPay">
+          <text class="modal-btn-text confirm-text">确认支付</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付失败提示 -->
+  <view class="modal-mask" wx:if="{{showPayFail}}" bindtap="onCloseFail">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="fail-icon-area">
+        <text class="fail-icon">✕</text>
+      </view>
+      <text class="fail-title">支付失败</text>
+      <text class="fail-desc">支付失败，请稍后重试</text>
+      <view class="fail-btn" bindtap="onRetryPay">
+        <text class="fail-btn-text">重新支付</text>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,159 @@
+<!--pages/order/order.wxml-->
+<view class="order-page">
+
+  <!-- 顶部店铺信息 -->
+  <view class="shop-header">
+    <!-- 背景大图 -->
+    <image
+      class="shop-banner"
+      src="/images/home/banner.png"
+      mode="aspectFill"
+    />
+
+    <!-- 浮在图片上的内容 -->
+    <view class="shop-overlay">
+      <!-- 订单模式标签 -->
+      <view class="mode-tabs">
+        <view class="mode-tab {{orderMode === 'dineIn' ? 'active' : ''}}">
+          <text class="tab-text">堂食</text>
+        </view>
+        <view class="mode-tab {{orderMode === 'pickUp' ? 'active' : ''}}">
+          <text class="tab-text">自提</text>
+        </view>
+        <view class="mode-tab {{orderMode === 'delivery' ? 'active' : ''}}">
+          <text class="tab-text">外卖</text>
+        </view>
+      </view>
+
+      <!-- 堂食：桌号输入 -->
+      <view class="dinein-section" wx:if="{{orderMode === 'dineIn'}}">
+        <view class="table-input-wrap" bindtap="onTableInputTap">
+          <text class="table-label">桌号：</text>
+          <text class="table-value">{{tableNumber || '点击输入桌号'}}</text>
+        </view>
+      </view>
+
+      <!-- 自提：取餐时间 -->
+      <view class="pickup-section" wx:if="{{orderMode === 'pickUp'}}">
+        <text class="pickup-label">取餐时间：</text>
+        <view class="time-slots">
+          <view
+            class="time-slot {{pickupTime === item ? 'selected' : ''}}"
+            wx:for="{{timeSlots}}"
+            wx:key="*this"
+            bindtap="onTimeSlotTap"
+            data-time="{{item}}"
+          >
+            <text class="slot-text">{{item}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 外卖：地址选择 -->
+      <view class="delivery-section" wx:if="{{orderMode === 'delivery'}}">
+        <view class="address-wrap" bindtap="onAddressTap">
+          <text class="address-icon">📍</text>
+          <view class="address-info">
+            <text class="address-name">{{selectedAddress ? selectedAddress.name : '请选择配送地址'}}</text>
+            <text class="address-detail" wx:if="{{selectedAddress}}">{{selectedAddress.address}}</text>
+          </view>
+          <text class="address-arrow">></text>
+        </view>
+        <view class="delivery-fee-wrap" wx:if="{{deliveryFee > 0}}">
+          <text class="fee-label">配送费：</text>
+          <text class="fee-value">¥{{deliveryFee}}</text>
+        </view>
+      </view>
+
+      <!-- 店铺信息行 -->
+      <view class="shop-info-row">
+        <view class="shop-name-area">
+          <text class="shop-name">Little Xu's Cake</text>
+          <text class="shop-arrow">></text>
+        </view>
+        <view class="shop-action">
+          <text class="action-text">一起烘焙</text>
+        </view>
+      </view>
+
+      <!-- 通知栏 -->
+      <view class="shop-notice">
+        <text class="notice-icon">📢</text>
+        <text class="notice-text">本店逢周二店休，营业时间 8:00-21:00</text>
+        <text class="notice-more">更多</text>
+        <text class="notice-arrow">v</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主体内容：左侧分类 + 右侧商品 -->
+  <view class="order-body">
+
+    <!-- 左侧分类栏 -->
+    <scroll-view class="category-list" scroll-y>
+      <view
+        class="category-item {{currentCategory === index ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="id"
+        bindtap="onCategoryTap"
+        data-index="{{index}}"
+      >
+        <text class="category-name">{{item.name}}</text>
+        <text class="category-tag" wx:if="{{item.tag}}">{{item.tag}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧商品列表 -->
+    <scroll-view class="goods-list" scroll-y>
+      <view
+        class="goods-card"
+        wx:for="{{goodsList}}"
+        wx:key="_id"
+        bindtap="onGoodsTap"
+        data-id="{{item._id}}"
+      >
+        <image
+          class="goods-img"
+          src="{{item.image}}"
+          mode="aspectFill"
+        />
+        <view class="goods-info">
+          <text class="goods-name">{{item.name}}</text>
+          <text class="goods-desc">{{item.description}}</text>
+          <view class="goods-bottom">
+            <text class="goods-price">¥{{item.price}}</text>
+            <!-- 未加入购物车：显示加号 -->
+            <view
+              class="add-btn"
+              wx:if="{{!item.cartQty}}"
+              catchtap="onGoodsTap"
+              data-id="{{item._id}}"
+            >
+              <text class="add-icon">+</text>
+            </view>
+            <!-- 已加入购物车：显示数量选择器 -->
+            <view class="qty-control" wx:else>
+              <view class="qty-btn-outer" catchtap="onQtyMinus" data-id="{{item._id}}">
+                <text class="qty-btn-icon">−</text>
+              </view>
+              <text class="qty-num">{{item.cartQty}}</text>
+              <view class="qty-btn-outer qty-btn-plus" catchtap="onGoodsTap" data-id="{{item._id}}">
+                <text class="qty-btn-icon">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{goodsList.length === 0}}">
+        <text class="empty-text">该分类暂无商品</text>
+      </view>
+    </scroll-view>
+
+  </view>
+
+  <!-- 底部自定义导航 -->
+  <custom-tabbar currentTab="{{1}}" />
+
+</view>
