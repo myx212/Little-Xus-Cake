@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/order/order",
+    "pages/goods-detail/goods-detail",
+    "pages/cart/cart",
+    "pages/confirm-order/confirm-order",
+    "pages/pay-success/pay-success",
+    "pages/order-list/order-list",
+    "pages/profile/profile",
+    "pages/stamp/stamp",
+    "pages/address/address",
+    "pages/address-map/address-map",
+    "pages/address-edit/address-edit",
+    "pages/points/points",
+    "pages/recharge/recharge"
+  ],
+  "window": {
+    "navigationBarTitleText": "Little Xu's Cake",
+    "navigationBarBackgroundColor": "#FEFFEF",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
