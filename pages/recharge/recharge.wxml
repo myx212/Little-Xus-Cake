@@ -1,0 +1,55 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="page-container">
+
+  <!-- 顶部 Banner -->
+  <view class="recharge-banner">
+    <text class="banner-title">会员充值</text>
+    <text class="banner-sub">充值享优惠，积分加倍送</text>
+    <image class="banner-image" src="/images/gift/gift3.png" mode="aspectFit" />
+  </view>
+
+  <!-- 当前余额 -->
+  <view class="balance-card">
+    <text class="balance-label">当前余额</text>
+    <view class="balance-amount">
+      <text class="balance-symbol">¥</text>
+      <text class="balance-num">{{balance}}</text>
+    </view>
+  </view>
+
+  <!-- 充值档位 -->
+  <view class="recharge-section">
+    <text class="section-title">选择充值金额</text>
+    <view class="recharge-grid">
+      <view
+        class="recharge-item {{selectedAmount === item.amount ? 'selected' : ''}}"
+        wx:for="{{rechargePlans}}"
+        wx:key="amount"
+        bindtap="onSelectPlan"
+        data-amount="{{item.amount}}"
+        data-bonus="{{item.bonus}}"
+      >
+        <text class="plan-amount">¥{{item.amount}}</text>
+        <text class="plan-bonus" wx:if="{{item.bonus > 0}}">送¥{{item.bonus}}</text>
+        <text class="plan-bonus" wx:else>热销</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 充值说明 -->
+  <view class="recharge-notice">
+    <text class="notice-title">充值说明</text>
+    <text class="notice-text">1. 充值金额即时到账，可用于店内消费</text>
+    <text class="notice-text">2. 充值赠送金额与本金同等使用</text>
+    <text class="notice-text">3. 充值金额不可提现，仅限本店使用</text>
+    <text class="notice-text">4. 充值即送等额积分，积分可兑换礼品</text>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <view class="pay-btn {{selectedAmount > 0 ? '' : 'disabled'}}" bindtap="onPay">
+      <text class="pay-btn-text">立即充值 ¥{{selectedAmount || 0}}</text>
+    </view>
+  </view>
+
+</view>
