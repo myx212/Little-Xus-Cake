@@ -1,0 +1,71 @@
+<!--pages/address-map/address-map.wxml-->
+<view class="map-page">
+
+  <!-- 顶部导航 -->
+  <view class="top-nav">
+    <text class="nav-cancel" bindtap="onCancel">取消</text>
+    <text class="nav-complete" bindtap="onComplete">完成</text>
+  </view>
+
+  <!-- 地图区域 -->
+  <view class="map-container">
+    <map
+      id="locationMap"
+      class="map-view"
+      longitude="{{longitude}}"
+      latitude="{{latitude}}"
+      scale="{{16}}"
+      markers="{{markers}}"
+      bindregionchange="onMapMove"
+      bindtap="onMapTap"
+      show-location="{{true}}"
+    ></map>
+
+    <!-- 定位按钮 -->
+    <view class="locate-btn" bindtap="onLocate">
+      <text class="locate-icon">◎</text>
+    </view>
+
+    <!-- 比例尺 -->
+    <view class="scale-bar">
+      <text class="scale-text">50米</text>
+    </view>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索地址"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearch"
+      />
+      <text class="search-clear" wx:if="{{searchKeyword}}" bindtap="onClearSearch">✕</text>
+    </view>
+    <text class="search-cancel" bindtap="onCancelSearch">取消</text>
+  </view>
+
+  <!-- 地址列表 -->
+  <scroll-view class="address-list" scroll-y>
+    <view
+      class="address-item {{item.selected ? 'selected' : ''}}"
+      wx:for="{{addressList}}"
+      wx:key="index"
+      bindtap="onSelectAddress"
+      data-index="{{index}}"
+    >
+      <view class="address-content">
+        <text class="address-name">{{item.name}}</text>
+        <text class="address-detail">{{item.distance}} | {{item.address}}</text>
+      </view>
+      <text class="address-check" wx:if="{{item.selected}}">✓</text>
+    </view>
+    <view class="empty-list" wx:if="{{addressList.length === 0}}">
+      <text class="empty-text">正在搜索附近地址...</text>
+    </view>
+  </scroll-view>
+
+</view>

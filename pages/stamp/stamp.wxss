@@ -1,0 +1,238 @@
+/* pages/stamp/stamp.wxss */
+
+page {
+  background-color: #FEFFEF;
+}
+
+.stamp-page {
+  min-height: 100vh;
+  background-color: #FEFFEF;
+  padding-bottom: 40rpx;
+}
+
+/* 顶部插画区 */
+.header-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30rpx 24rpx 20rpx;
+  background-color: #FFF9EE;
+}
+
+.header-decor-left {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+}
+
+.stamp-icon {
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0.7;
+}
+
+.header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  margin-bottom: 6rpx;
+}
+
+.header-sub {
+  font-size: 22rpx;
+  color: #B8A88A;
+}
+
+.header-decor-right {
+  width: 120rpx;
+  height: 120rpx;
+  flex-shrink: 0;
+}
+
+.coffee-icon {
+  width: 110rpx;
+  height: 110rpx;
+  opacity: 0.7;
+}
+
+/* 进度卡片 */
+.progress-card {
+  background-color: #FFFFFF;
+  margin: 16rpx 20rpx;
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.06);
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #F0EAE0;
+}
+
+.progress-label {
+  font-size: 28rpx;
+  color: #5C4A32;
+}
+
+.progress-count {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #C4956A;
+  margin: 0 12rpx;
+}
+
+/* 徽章网格 */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.badge-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-circle {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #F5F0E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.badge-item.collected .badge-circle {
+  background-color: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(139, 111, 71, 0.1);
+}
+
+.badge-image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.badge-image.grayed {
+  filter: grayscale(100%);
+  opacity: 0.35;
+}
+
+/* 记录Tab */
+.record-tabs {
+  display: flex;
+  margin: 16rpx 20rpx 0;
+  background-color: #FFFFFF;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+}
+
+.record-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0;
+  border-bottom: 4rpx solid transparent;
+}
+
+.record-tab.active {
+  border-bottom-color: #C4956A;
+}
+
+.tab-icon {
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
+
+.tab-label {
+  font-size: 28rpx;
+  color: #B8A88A;
+  font-weight: 600;
+}
+
+.record-tab.active .tab-label {
+  color: #5C4A32;
+}
+
+/* 记录列表 */
+.record-list {
+  background-color: #FFFFFF;
+  margin: 0 20rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  padding: 0 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.06);
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #F5F0E8;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-text {
+  font-size: 26rpx;
+  color: #5C4A32;
+}
+
+.record-time {
+  font-size: 22rpx;
+  color: #B8A88A;
+}
+
+.empty-record {
+  padding: 60rpx 0;
+  text-align: center;
+}
+
+.empty-text {
+  font-size: 26rpx;
+  color: #B8A88A;
+}
+
+/* 活动说明 */
+.rules-card {
+  background-color: #FFFFFF;
+  margin: 16rpx 20rpx;
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.06);
+}
+
+.rules-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rules-item {
+  font-size: 24rpx;
+  color: #8A7A66;
+  line-height: 1.8;
+  margin-bottom: 8rpx;
+}

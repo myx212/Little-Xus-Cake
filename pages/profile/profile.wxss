@@ -1,0 +1,278 @@
+/* pages/profile/profile.wxss */
+
+page {
+  background-color: #FEFFEF;
+}
+
+.profile-page {
+  min-height: 100vh;
+  background-color: #FEFFEF;
+  padding-bottom: 220rpx;
+}
+
+/* 顶部区域 */
+.banner-area {
+  position: relative;
+  width: 100%;
+  background-color: #FEFFEF;
+  padding-top: 16rpx;
+}
+
+.banner-title {
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  font-style: italic;
+  margin-bottom: 4rpx;
+}
+
+.banner-image {
+  width: 100%;
+  display: block;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  display: flex;
+  align-items: center;
+  background-color: #FFF9EE;
+  margin: 0 20rpx;
+  border-radius: 16rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 6rpx 24rpx rgba(139, 111, 71, 0.15);
+}
+
+.user-avatar-wrap {
+  margin-right: 28rpx;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background-color: #E8E4F0;
+}
+
+.user-stats {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 昵称编辑 */
+.nickname-edit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.nickname-text {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  margin-right: 8rpx;
+}
+
+.edit-icon {
+  font-size: 24rpx;
+  color: #C8A882;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  margin-bottom: 6rpx;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #A0906E;
+}
+
+/* 会员码图标 */
+.qr-icon {
+  margin-bottom: 4rpx;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rpx;
+}
+
+.qr-cell {
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #5C4A32;
+  border-radius: 2rpx;
+}
+
+/* 菜单列表 */
+.menu-list {
+  margin-top: 12rpx;
+  background-color: #FFFFFF;
+}
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 28rpx;
+  border-bottom: 1rpx solid #F0EAE0;
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-label {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #3D3D3D;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-desc {
+  font-size: 24rpx;
+  color: #B8A88A;
+  margin-right: 8rpx;
+}
+
+.menu-arrow {
+  font-size: 26rpx;
+  color: #C8C0B4;
+}
+
+/* 会员码弹窗 */
+.member-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-popup {
+  width: 520rpx;
+  background-color: #FFFDF5;
+  border-radius: 24rpx;
+  padding: 40rpx 32rpx 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.member-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #5C4A32;
+}
+
+.member-close {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-icon {
+  font-size: 28rpx;
+  color: #B8A88A;
+}
+
+.member-qrcode-wrap {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.08);
+  margin-bottom: 24rpx;
+}
+
+.member-qrcode {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.member-hint {
+  font-size: 26rpx;
+  color: #B8A88A;
+  margin-bottom: 12rpx;
+}
+
+.member-id {
+  font-size: 24rpx;
+  color: #A0906E;
+}
+
+/* 昵称编辑输入框 */
+.nickname-edit-input-wrap {
+  width: 100%;
+  margin-bottom: 24rpx;
+}
+
+.nickname-edit-input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #E8E0D4;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #5C4A32;
+  box-sizing: border-box;
+}
+
+.popup-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.popup-btn {
+  flex: 1;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.popup-btn.cancel {
+  background-color: #F5F0E8;
+  color: #A0906E;
+}
+
+.popup-btn.confirm {
+  background-color: #C8A882;
+  color: #FFFFFF;
+}

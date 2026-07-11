@@ -1,0 +1,360 @@
+/* pages/points/points.wxss */
+
+page {
+  background-color: #FEFFEF;
+}
+
+.points-page {
+  min-height: 100vh;
+  background-color: #FEFFEF;
+  padding-bottom: 40rpx;
+}
+
+/* 顶部Banner */
+.banner-area {
+  position: relative;
+  background: linear-gradient(135deg, #E8C9A0 0%, #D4A574 50%, #C4956A 100%);
+  padding: 40rpx 32rpx 80rpx;
+  overflow: hidden;
+}
+
+.banner-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.banner-decor {
+  position: absolute;
+  right: 20rpx;
+  top: 10rpx;
+}
+
+.gift-icon {
+  font-size: 120rpx;
+  opacity: 0.9;
+}
+
+/* 用户积分卡片 */
+.points-card {
+  background-color: #FFFFFF;
+  margin: -40rpx 20rpx 20rpx;
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(139, 111, 71, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  background-color: #F5F0E8;
+}
+
+.points-info {
+  display: flex;
+  align-items: baseline;
+}
+
+.points-label {
+  font-size: 26rpx;
+  color: #8A7A66;
+  margin-right: 12rpx;
+}
+
+.points-value {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #C4956A;
+}
+
+.points-links {
+  display: flex;
+  gap: 24rpx;
+}
+
+.points-link {
+  font-size: 24rpx;
+  color: #8A7A66;
+  padding: 8rpx 16rpx;
+  border: 1rpx solid #E8DFD0;
+  border-radius: 20rpx;
+}
+
+/* 每日签到卡片 */
+.checkin-card {
+  background-color: #FFFFFF;
+  margin: 0 20rpx 20rpx;
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.06);
+}
+
+.checkin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.checkin-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #5C4A32;
+}
+
+.checkin-reminder {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.reminder-text {
+  font-size: 24rpx;
+  color: #B8A88A;
+}
+
+.reminder-switch {
+  width: 64rpx;
+  height: 34rpx;
+  border-radius: 17rpx;
+  background-color: #E8DFD0;
+  position: relative;
+}
+
+.reminder-switch.on {
+  background-color: #D4B896;
+}
+
+.reminder-knob {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 3rpx;
+  left: 3rpx;
+  box-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.1);
+}
+
+.reminder-switch.on .reminder-knob {
+  left: 33rpx;
+}
+
+/* 本周签到日历 */
+.week-calendar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+  padding: 0 8rpx;
+}
+
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.day-name {
+  font-size: 22rpx;
+  color: #B8A88A;
+  margin-bottom: 12rpx;
+}
+
+.day-coin {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background-color: #FFF3E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8rpx;
+}
+
+.day-coin.collected {
+  background-color: #FFE4B5;
+}
+
+.day-item.today .day-coin {
+  border: 3rpx solid #D4B896;
+}
+
+.coin-icon {
+  font-size: 36rpx;
+}
+
+.day-points {
+  font-size: 18rpx;
+  color: #B8A88A;
+}
+
+/* 周进度条 */
+.week-progress {
+  margin-bottom: 24rpx;
+  padding: 0 8rpx;
+}
+
+.progress-dots {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 8rpx;
+}
+
+.progress-dots::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2rpx;
+  background-color: #E8DFD0;
+  transform: translateY(-50%);
+}
+
+.progress-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #E8DFD0;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-dot.active {
+  background-color: #D4B896;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-label {
+  font-size: 18rpx;
+  color: #B8A88A;
+  flex: 1;
+  text-align: center;
+}
+
+/* 签到按钮 */
+.checkin-btn {
+  background-color: #D4B896;
+  border-radius: 32rpx;
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.checkin-btn.done {
+  background-color: #E8DFD0;
+}
+
+.checkin-btn-text {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* 积分商品 */
+.products-card {
+  background-color: #FFFFFF;
+  margin: 0 20rpx;
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 111, 71, 0.06);
+}
+
+.products-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #5C4A32;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.product-item {
+  background-color: #FEFFEF;
+  border-radius: 16rpx;
+  padding: 16rpx;
+  border: 1rpx solid #F0EAE0;
+}
+
+.product-image {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 12rpx;
+  background-color: #F5F0E8;
+  margin-bottom: 12rpx;
+}
+
+.product-name {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #5C4A32;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.product-price {
+  font-size: 22rpx;
+  color: #B8A88A;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-points {
+  display: flex;
+  align-items: center;
+}
+
+.points-star {
+  font-size: 24rpx;
+  color: #D4878A;
+  margin-right: 4rpx;
+}
+
+.points-num {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #D4878A;
+}
+
+.exchange-btn {
+  background-color: #FFF3E8;
+  border: 1rpx solid #D4B896;
+  border-radius: 20rpx;
+  padding: 8rpx 24rpx;
+}
+
+.exchange-text {
+  font-size: 24rpx;
+  color: #D4B896;
+  font-weight: 600;
+}
