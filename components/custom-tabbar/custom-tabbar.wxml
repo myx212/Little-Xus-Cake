@@ -1,0 +1,69 @@
+<!--components/custom-tabbar/custom-tabbar.wxml-->
+<view class="bottom-banner">
+  <view class="banner-text">
+    <text class="banner-stars">+  Xu's  +</text>
+    <text class="banner-sub">Cafe & Bakery</text>
+  </view>
+  <image
+    class="banner-decor"
+    src="/images/home/logo.png"
+    mode="aspectFit"
+  />
+</view>
+
+<view class="custom-tabbar">
+  <view class="tabbar-inner">
+    <view
+      class="tab-item {{currentTab === 0 ? 'active' : ''}}"
+      bindtap="onTabTap"
+      data-index="0"
+      data-page="/pages/home/home"
+    >
+      <image
+        class="tab-icon"
+        src="/images/home/tabbar_home.png"
+        mode="aspectFit"
+      />
+      <text class="tab-label">首页</text>
+    </view>
+    <view
+      class="tab-item {{currentTab === 1 ? 'active' : ''}}"
+      bindtap="onTabTap"
+      data-index="1"
+      data-page="/pages/order/order"
+    >
+      <image
+        class="tab-icon"
+        src="/images/home/tabbar_order.png"
+        mode="aspectFit"
+      />
+      <text class="tab-label">点餐</text>
+    </view>
+    <view
+      class="tab-item {{currentTab === 2 ? 'active' : ''}}"
+      bindtap="onTabTap"
+      data-index="2"
+      data-page="/pages/order-list/order-list"
+    >
+      <image
+        class="tab-icon"
+        src="/images/home/tabbar_list.png"
+        mode="aspectFit"
+      />
+      <text class="tab-label">订单</text>
+    </view>
+    <view
+      class="tab-item {{currentTab === 3 ? 'active' : ''}}"
+      bindtap="onTabTap"
+      data-index="3"
+      data-page="/pages/profile/profile"
+    >
+      <image
+        class="tab-icon"
+        src="/images/home/tabbar_profile.png"
+        mode="aspectFit"
+      />
+      <text class="tab-label">个人中心</text>
+    </view>
+  </view>
+</view>
