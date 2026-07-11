@@ -1,0 +1,39 @@
+<!--pages/login/login.wxml-->
+<view class="login-page">
+
+  <!-- 全屏背景图 -->
+  <image class="bg-image" src="/images/home/login.png" mode="aspectFill" />
+
+  <!-- 右上角小标 -->
+  <view class="corner-badge">
+    <text class="badge-text">面包脑袋冲啊~！</text>
+  </view>
+
+  <!-- 底部登录按钮 -->
+  <view class="login-btn-area">
+    <button class="login-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <text class="login-btn-text">微信授权登录</text>
+    </button>
+  </view>
+
+  <!-- 昵称输入弹窗 -->
+  <view class="nickname-mask" wx:if="{{showNicknameInput}}">
+    <view class="nickname-mask-bg" bindtap="onCloseNickname"></view>
+    <view class="nickname-popup">
+      <text class="popup-title">请输入昵称</text>
+      <input
+        class="nickname-input"
+        placeholder="请输入您的昵称"
+        value="{{tempNickname}}"
+        bindinput="onNicknameInput"
+        maxlength="20"
+        focus="{{showNicknameInput}}"
+      />
+      <view class="popup-btns">
+        <button class="popup-btn cancel" bindtap="onCloseNickname">取消</button>
+        <button class="popup-btn confirm" bindtap="onConfirmLogin">确认登录</button>
+      </view>
+    </view>
+  </view>
+
+</view>
