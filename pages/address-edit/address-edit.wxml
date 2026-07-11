@@ -1,0 +1,114 @@
+<!--pages/address-edit/address-edit.wxml-->
+<view class="edit-page">
+
+  <!-- 地址选择卡片 -->
+  <view class="address-card">
+    <view class="address-top">
+      <view class="address-main">
+        <text class="address-name">{{selectedName || '请选择地址'}}</text>
+        <text class="address-detail">{{selectedAddress || ''}}</text>
+      </view>
+      <text class="change-btn" bindtap="onChangeAddress">更换地址</text>
+    </view>
+  </view>
+
+  <!-- 详细地址 -->
+  <view class="form-row">
+    <text class="form-label">详细地址</text>
+    <input
+      class="form-input"
+      placeholder="例：1层101"
+      value="{{detailAddress}}"
+      bindinput="onDetailInput"
+    />
+  </view>
+
+  <!-- 联系人 -->
+  <view class="form-row">
+    <text class="form-label">联系人</text>
+    <input
+      class="form-input contact-input"
+      placeholder="请填写"
+      value="{{contactName}}"
+      bindinput="onContactInput"
+    />
+    <view class="gender-group">
+      <view
+        class="gender-item {{gender === '先生' ? 'active' : ''}}"
+        bindtap="onGenderTap"
+        data-gender="先生"
+      >
+        <view class="gender-radio {{gender === '先生' ? 'checked' : ''}}"></view>
+        <text class="gender-text">先生</text>
+      </view>
+      <view
+        class="gender-item {{gender === '女士' ? 'active' : ''}}"
+        bindtap="onGenderTap"
+        data-gender="女士"
+      >
+        <view class="gender-radio {{gender === '女士' ? 'checked' : ''}}"></view>
+        <text class="gender-text">女士</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 手机号 -->
+  <view class="form-row">
+    <text class="form-label">手机号</text>
+    <input
+      class="form-input"
+      type="number"
+      maxlength="11"
+      placeholder="请填写"
+      value="{{phone}}"
+      bindinput="onPhoneInput"
+    />
+  </view>
+
+  <!-- 标签 -->
+  <view class="form-row">
+    <text class="form-label">标签</text>
+    <view class="tag-group">
+      <view
+        class="tag-item {{tag === '家' ? 'active' : ''}}"
+        bindtap="onTagTap"
+        data-tag="家"
+      >
+        <text class="tag-text">家</text>
+      </view>
+      <view
+        class="tag-item {{tag === '公司' ? 'active' : ''}}"
+        bindtap="onTagTap"
+        data-tag="公司"
+      >
+        <text class="tag-text">公司</text>
+      </view>
+      <view
+        class="tag-item {{tag === '学校' ? 'active' : ''}}"
+        bindtap="onTagTap"
+        data-tag="学校"
+      >
+        <text class="tag-text">学校</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设为默认 -->
+  <view class="form-row default-row">
+    <text class="form-label">设为默认地址</text>
+    <view
+      class="switch {{isDefault ? 'on' : ''}}"
+      bindtap="onToggleDefault"
+    >
+      <view class="switch-knob"></view>
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="save-area">
+    <view class="save-btn" bindtap="onSave">
+      <text class="save-btn-text">保存</text>
+    </view>
+  </view>
+
+</view>

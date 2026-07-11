@@ -1,0 +1,42 @@
+<!--pages/address/address.wxml-->
+<view class="address-page">
+
+  <!-- 空状态 -->
+  <view class="empty-area" wx:if="{{addressList.length === 0}}">
+    <view class="empty-icon-wrap">
+      <image class="stamp-icon" src="/images/home/address.png" mode="aspectFit" />
+    </view>
+    <text class="empty-text">暂无地址信息，点击添加地址</text>
+    <view class="add-btn" bindtap="onAddAddress">
+      <text class="add-btn-text">添加地址</text>
+    </view>
+  </view>
+
+  <!-- 地址列表 -->
+  <view class="address-list" wx:if="{{addressList.length > 0}}">
+    <view
+      class="address-item"
+      wx:for="{{addressList}}"
+      wx:key="_id"
+    >
+      <!-- 左侧单选 -->
+      <view class="address-radio {{item.isDefault ? 'checked' : ''}}" bindtap="onSetDefault" data-id="{{item._id}}"></view>
+
+      <!-- 地址信息 -->
+      <view class="address-info">
+        <view class="address-header">
+          <text class="tag-default" wx:if="{{item.isDefault}}">默认</text>
+          <text class="address-name">{{item.contactName || item.name}}</text>
+          <text class="address-phone">{{item.phone}}</text>
+        </view>
+        <text class="address-detail">{{item.address}} {{item.detail}}</text>
+      </view>
+
+      <!-- 右侧编辑图标 -->
+      <view class="address-edit-icon" bindtap="onEditAddress" data-id="{{item._id}}">
+        <text class="edit-icon-text">✎</text>
+      </view>
+    </view>
+  </view>
+
+</view>

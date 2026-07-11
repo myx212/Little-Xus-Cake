@@ -1,0 +1,92 @@
+<!--pages/profile/profile.wxml-->
+<view class="profile-page">
+
+  <!-- 顶部区域 -->
+  <view class="banner-area">
+    
+    <image class="banner-image" src="/images/home/banner-two.png" mode="widthFix" />
+  </view>
+
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-avatar-wrap" bindtap="onChooseAvatar">
+      <image class="user-avatar" src="{{avatar || '/images/home/login.png'}}" mode="aspectFill" />
+    </view>
+    <view class="user-stats">
+      <view class="stat-item">
+        <text class="stat-num">{{couponCount}}</text>
+        <text class="stat-label">券</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{balance}}</text>
+        <text class="stat-label">钱包</text>
+      </view>
+      <view class="stat-item" bindtap="onShowMemberCode">
+        <view class="qr-icon">
+          <view class="qr-grid">
+            <view class="qr-cell"></view>
+            <view class="qr-cell"></view>
+            <view class="qr-cell"></view>
+            <view class="qr-cell"></view>
+          </view>
+        </view>
+        <text class="stat-label">会员码</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 菜单列表 -->
+  <view class="menu-list">
+    <view class="menu-row" bindtap="onGoOrders">
+      <text class="menu-label">我的订单</text>
+      <view class="menu-right">
+        <text class="menu-desc">随时查看消费订单</text>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-row" bindtap="onMenuTap" data-type="focus">
+      <text class="menu-label">我的集点</text>
+      <view class="menu-right">
+        <!-- <text class="menu-desc">8杯换一杯</text> -->
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-row" bindtap="onMenuTap" data-type="address">
+      <text class="menu-label">地址管理</text>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-row" bindtap="onMenuTap" data-type="points">
+      <text class="menu-label">积分商城</text>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员码弹窗 -->
+  <view class="member-mask" wx:if="{{showMemberCode}}" bindtap="onCloseMemberCode">
+    <view class="member-popup" catchtap="">
+      <view class="member-header">
+        <text class="member-title">我的会员码</text>
+        <view class="member-close" bindtap="onCloseMemberCode">
+          <text class="close-icon">✕</text>
+        </view>
+      </view>
+      <view class="member-qrcode-wrap">
+        <canvas
+          canvas-id="memberQrcode"
+          class="member-qrcode"
+          style="width: {{qrSize}}px; height: {{qrSize}}px;"
+        ></canvas>
+      </view>
+      <text class="member-hint">出示此码即可享受会员权益</text>
+      <text class="member-id" wx:if="{{memberId}}">会员号：{{memberId}}</text>
+    </view>
+  </view>
+
+  <!-- 底部自定义导航 -->
+  <custom-tabbar currentTab="{{3}}" />
+
+</view>

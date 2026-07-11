@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "custom-tabbar": "/components/custom-tabbar/custom-tabbar"
+  },
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#FEFFEF",
+  "navigationBarTextStyle": "black"
+}

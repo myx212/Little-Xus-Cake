@@ -1,0 +1,176 @@
+/* pages/address-map/address-map.wxss */
+
+page {
+  background-color: #FEFFEF;
+}
+
+.map-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #FEFFEF;
+}
+
+/* 顶部导航 */
+.top-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background-color: #FEFFEF;
+  z-index: 10;
+}
+
+.nav-cancel {
+  font-size: 28rpx;
+  color: #C4956A;
+}
+
+.nav-complete {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  background-color: #C4956A;
+  padding: 12rpx 32rpx;
+  border-radius: 24rpx;
+  font-weight: 600;
+}
+
+/* 地图区域 */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+}
+
+.map-view {
+  width: 100%;
+  height: 100%;
+}
+
+.locate-btn {
+  position: absolute;
+  left: 24rpx;
+  bottom: 60rpx;
+  width: 72rpx;
+  height: 72rpx;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 8rpx rgba(139, 111, 71, 0.15);
+}
+
+.locate-icon {
+  font-size: 36rpx;
+  color: #5C4A32;
+}
+
+.scale-bar {
+  position: absolute;
+  left: 24rpx;
+  bottom: 20rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.scale-text {
+  font-size: 20rpx;
+  color: #8A7A66;
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background-color: #FFFFFF;
+  border-bottom: 1rpx solid #F0EAE0;
+}
+
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #F5F0E8;
+  border-radius: 32rpx;
+  padding: 16rpx 24rpx;
+  margin-right: 16rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #5C4A32;
+}
+
+.search-clear {
+  font-size: 24rpx;
+  color: #B8A88A;
+  padding: 8rpx;
+}
+
+.search-cancel {
+  font-size: 28rpx;
+  color: #C4956A;
+  white-space: nowrap;
+}
+
+/* 地址列表 */
+.address-list {
+  flex: 1;
+  background-color: #FFFFFF;
+}
+
+.address-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 24rpx;
+  border-bottom: 1rpx solid #F5F0E8;
+}
+
+.address-item.selected {
+  background-color: #FFF9EE;
+}
+
+.address-content {
+  flex: 1;
+}
+
+.address-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #5C4A32;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.address-detail {
+  font-size: 24rpx;
+  color: #B8A88A;
+  display: block;
+}
+
+.address-check {
+  font-size: 36rpx;
+  color: #4CAF50;
+  margin-left: 16rpx;
+}
+
+.empty-list {
+  padding: 60rpx 0;
+  text-align: center;
+}
+
+.empty-text {
+  font-size: 26rpx;
+  color: #B8A88A;
+}
