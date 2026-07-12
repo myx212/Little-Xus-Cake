@@ -1,0 +1,171 @@
+/* pages/ai-pay-success/ai-pay-success.wxss */
+
+page {
+  background-color: #FFF8F5;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
+.page-container {
+  min-height: 100vh;
+  background-color: #FFF8F5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 48rpx;
+  box-sizing: border-box;
+  padding-top: calc(80rpx + env(safe-area-inset-top));
+}
+
+/* 成功图标 */
+.success-icon-wrap {
+  position: relative;
+  margin-top: 40rpx;
+  margin-bottom: 48rpx;
+}
+
+.success-circle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background-color: #F5A0A0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(245, 160, 160, 0.45);
+}
+
+.success-check {
+  font-size: 80rpx;
+  color: #FFFFFF;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sparkle {
+  position: absolute;
+  color: #F5A0A0;
+  font-size: 28rpx;
+  opacity: 0.6;
+}
+
+.sparkle-1 {
+  top: -10rpx;
+  left: -40rpx;
+  transform: rotate(15deg);
+}
+
+.sparkle-2 {
+  top: -40rpx;
+  right: -30rpx;
+  transform: rotate(-20deg);
+  font-size: 22rpx;
+}
+
+.sparkle-3 {
+  bottom: 10rpx;
+  right: -50rpx;
+  transform: rotate(30deg);
+  font-size: 24rpx;
+}
+
+/* 成功文案 */
+.success-text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 60rpx;
+}
+
+.success-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.success-desc {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* AI 插画 + 爱心装饰 */
+.ai-mascot-wrap {
+  position: relative;
+  margin-bottom: 120rpx;
+}
+
+.ai-mascot {
+  width: 360rpx;
+  height: 360rpx;
+}
+
+.heart {
+  position: absolute;
+  color: #F5A0A0;
+  opacity: 0.7;
+  font-size: 32rpx;
+}
+
+.heart-1 {
+  top: 40rpx;
+  left: -10rpx;
+  transform: rotate(-15deg);
+}
+
+.heart-2 {
+  top: 100rpx;
+  right: -20rpx;
+  transform: rotate(20deg);
+  font-size: 28rpx;
+}
+
+/* 按钮组 */
+.btn-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24rpx;
+}
+
+.ghost-btn {
+  flex: 1;
+  background-color: #FFFFFF;
+  border: 2rpx solid #F0D5CF;
+  border-radius: 40rpx;
+  padding: 22rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ghost-btn:active {
+  background-color: #FFF5F5;
+}
+
+.ghost-btn-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #F5A0A0;
+}
+
+.primary-btn {
+  flex: 1;
+  background-color: #F5A0A0;
+  border-radius: 40rpx;
+  padding: 22rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 16rpx rgba(245, 160, 160, 0.35);
+}
+
+.primary-btn:active {
+  opacity: 0.88;
+  transform: scale(0.98);
+}
+
+.primary-btn-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}

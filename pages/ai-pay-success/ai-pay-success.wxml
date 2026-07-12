@@ -1,0 +1,38 @@
+<!--pages/ai-pay-success/ai-pay-success.wxml-->
+<view class="page-container">
+
+  <!-- 成功图标（粉色圆+白勾） -->
+  <view class="success-icon-wrap">
+    <view class="success-circle">
+      <text class="success-check">✓</text>
+    </view>
+    <!-- 装饰星星 -->
+    <view class="sparkle sparkle-1">✦</view>
+    <view class="sparkle sparkle-2">✦</view>
+    <view class="sparkle sparkle-3">✦</view>
+  </view>
+
+  <!-- 文案 -->
+  <view class="success-text-wrap">
+    <text class="success-title">下单成功！</text>
+    <text class="success-desc">请耐心等待制作~</text>
+  </view>
+
+  <!-- AI 插画 -->
+  <view class="ai-mascot-wrap">
+    <image class="ai-mascot" src="/images/ai/success.png" mode="aspectFit" />
+    <view class="heart heart-1">❤</view>
+    <view class="heart heart-2">❤</view>
+  </view>
+
+  <!-- 按钮组 -->
+  <view class="btn-group">
+    <view class="ghost-btn" bindtap="onViewOrder">
+      <text class="ghost-btn-text">查看订单</text>
+    </view>
+    <view class="primary-btn" bindtap="onBackHome">
+      <text class="primary-btn-text">返回首页</text>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,378 @@
+/* pages/ai-confirm-order/ai-confirm-order.wxss */
+
+page {
+  background-color: #FFF5F0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
+.page-container {
+  min-height: 100vh;
+  background-color: #FFF5F0;
+  padding-bottom: 200rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部标题栏 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+  padding-top: calc(16rpx + env(safe-area-inset-top));
+  background-color: #FFF5F0;
+}
+
+.header-left, .header-right {
+  width: 80rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 52rpx;
+  color: #333;
+  font-weight: 300;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.more-icon {
+  font-size: 36rpx;
+  color: #333;
+  letter-spacing: 2rpx;
+}
+
+/* 商品卡片区域 */
+.goods-section {
+  margin: 24rpx 32rpx 0;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 12rpx 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.goods-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #F8EEEA;
+}
+
+.goods-item:last-child {
+  border-bottom: none;
+}
+
+.goods-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+  background-color: #F8F0E4;
+  margin-right: 20rpx;
+}
+
+.goods-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rpx;
+}
+
+.goods-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.goods-qty {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.goods-price {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #333;
+  flex-shrink: 0;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  margin: 24rpx 48rpx;
+  background-color: #F0DDD3;
+}
+
+/* 配送信息区 */
+.info-section {
+  margin: 0 32rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 8rpx 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 底部区域 */
+.bottom-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 32rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background-color: #FFF5F0;
+}
+
+.total-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20rpx;
+  padding: 0 4rpx;
+}
+
+.total-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.total-price {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.pay-btn {
+  background: #F5A0A0;
+  border-radius: 48rpx;
+  padding: 26rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 16rpx rgba(245, 160, 160, 0.35);
+}
+
+.pay-btn:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.pay-btn-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* ========= 支付弹窗 ========= */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 580rpx;
+  background-color: #FFFFFF;
+  border-radius: 28rpx;
+  padding: 48rpx 40rpx 36rpx;
+  box-shadow: 0 8rpx 32rpx rgba(139, 111, 71, 0.12);
+}
+
+.modal-title {
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 36rpx;
+}
+
+.pay-method-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 16rpx;
+  margin: 0 -16rpx;
+  border-radius: 12rpx;
+  transition: background 0.2s;
+}
+
+.pay-method-item.active {
+  background: #FFF5F5;
+}
+
+.method-left {
+  display: flex;
+  align-items: center;
+}
+
+.method-icon {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-right: 16rpx;
+}
+
+.wechat-icon {
+  background-color: #07C160;
+}
+
+.wallet-icon {
+  background-color: #E8A84C;
+}
+
+.method-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.method-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.method-desc {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+.method-check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #E5D5CD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+
+.method-check.checked {
+  background: #F5A0A0;
+  border-color: #F5A0A0;
+}
+
+.modal-btns {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 22rpx 0;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.modal-btn.cancel {
+  border: 2rpx solid #E5D5CD;
+}
+
+.modal-btn.confirm {
+  background-color: #F5A0A0;
+  box-shadow: 0 4rpx 12rpx rgba(245, 160, 160, 0.3);
+}
+
+.modal-btn-text {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.cancel-text {
+  color: #999;
+}
+
+.confirm-text {
+  color: #FFFFFF;
+}
+
+/* 支付失败弹窗 */
+.fail-content {
+  text-align: center;
+  padding: 48rpx 40rpx 36rpx;
+}
+
+.fail-icon-wrap {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #E74C3C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24rpx;
+}
+
+.fail-icon {
+  font-size: 60rpx;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.fail-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.fail-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 36rpx;
+}
+
+.fail-btn {
+  background-color: #F5A0A0;
+  border-radius: 40rpx;
+  padding: 22rpx 0;
+  text-align: center;
+}
+
+.fail-btn-text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
