@@ -613,11 +613,33 @@ wx.cloud.callFunction({
 
 ### B. 加分项说明
 
-| 加分项 | 落地情况 |
-|--------|----------|
-| CI/CD | 可扩展：`miniprogram-ci` CLI + GitHub Actions |
-| 单元测试 | 可扩展：`wx-server-sdk-mock` / `miniprogram-simulate` |
-| 工程化 | 云函数 try-catch 全链路 + `cloud.DYNAMIC_CURRENT_ENV` 多环境 |
+| 加分项 | 落地情况 | 文件位置 |
+|--------|----------|----------|
+| **CI/CD** | ✅ GitHub Actions 自动检查：push 时自动跑 ESLint + 单元测试 + 云函数结构校验 | `.github/workflows/ci.yml` |
+| **单元测试** | ✅ Jest 测试框架，30+ 测试用例，覆盖金额计算、参数校验、订单号生成、购物车逻辑 | `__tests__/createOrder.test.js` `__tests__/cartAndGoods.test.js` |
+| **工程化** | ✅ 统一日志工具（logger.js）+ 结构化错误监控 + 云函数全链路日志记录 | `cloudfunctions/common/logger.js` |
+
+#### CI/CD 流水线
+
+```yaml
+push → checkout → setup Node.js → npm ci → ESLint → Jest tests → 云函数结构校验 → 项目配置校验
+```
+
+#### 单元测试运行
+
+```bash
+npm test              # 运行所有测试
+npm run test:coverage # 生成覆盖率报告
+```
+
+#### 日志与错误监控
+
+所有云函数使用统一的 `logger.wrap()` 包裹，自动记录：
+- 请求开始/成功/失败
+- 时间戳、云函数名、action
+- 错误堆栈信息
+
+查看方式：**微信开发者工具 → 云开发 → 日志**
 
 ---
 

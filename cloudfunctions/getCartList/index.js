@@ -11,13 +11,14 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
+const logger = require('../common/logger')
 const db = cloud.database()
 const _ = db.command
 
 exports.main = async (event, context) => {
   const { action, openid, id, delta, item } = event
 
-  try {
+  return logger.wrap('getCartList', action, async () => {
     // 查询购物车列表
     if (action === 'list') {
       if (!openid) return { code: -1, message: '缺少openid' }
@@ -95,8 +96,5 @@ exports.main = async (event, context) => {
     }
 
     return { code: -1, message: '未知action' }
-  } catch (err) {
-    console.error(err)
-    return { code: -1, message: '服务器错误', error: err.message }
-  }
+  })
 }

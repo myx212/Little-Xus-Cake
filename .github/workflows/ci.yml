@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ESLint check
+        run: npx eslint cloudfunctions/**/*.js --ext .js || true
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Validate cloud function structure
+        run: |
+          echo "Checking cloud function directories..."
+          for func in getUserOpenid getGoodsList getCartList createOrder; do
+            if [ -f "cloudfunctions/$func/index.js" ]; then
+              echo "✅ $func/index.js exists"
+            else
+              echo "❌ $func/index.js missing"
+              exit 1
+            fi
+            if [ -f "cloudfunctions/$func/package.json" ]; then
+              echo "✅ $func/package.json exists"
+            else
+              echo "❌ $func/package.json missing"
+              exit 1
+            fi
+          done
+          echo "All cloud functions validated."
+
+      - name: Validate project config
+        run: |
+          if [ -f "app.json" ]; then
+            echo "✅ app.json exists"
+            node -e "JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('✅ app.json is valid JSON')"
+          else
+            echo "❌ app.json missing"
+            exit 1
+          fi

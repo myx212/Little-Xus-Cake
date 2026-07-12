@@ -1,0 +1,21 @@
+{
+  "name": "little-xus-cake",
+  "version": "1.0.0",
+  "description": "Little Xu's Cake - 甜品烘焙微信小程序",
+  "private": true,
+  "scripts": {
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint cloudfunctions/**/*.js --ext .js",
+    "lint:fix": "eslint cloudfunctions/**/*.js --ext .js --fix"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/__tests__/**/*.test.js"],
+    "collectCoverageFrom": ["cloudfunctions/**/*.js"],
+    "coverageDirectory": "coverage"
+  }
+}
