@@ -1,0 +1,92 @@
+<!--pages/ai-confirm-order/ai-confirm-order.wxml-->
+<view class="page-container">
+
+  <!-- 商品列表 -->
+  <view class="goods-section">
+    <view class="goods-item" wx:for="{{cartList}}" wx:key="_id">
+      <image class="goods-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="goods-info">
+        <text class="goods-name">{{item.name}}</text>
+        <text class="goods-qty">x{{item.quantity}}</text>
+      </view>
+      <text class="goods-price">¥{{item.price}}</text>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class="divider"></view>
+
+  <!-- 配送信息 -->
+  <view class="info-section">
+    <view class="info-row">
+      <text class="info-label">配送方式</text>
+      <text class="info-value">{{deliveryMode === 'deliver' ? '外卖配送' : '到店自取'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">取餐时间</text>
+      <text class="info-value">{{pickTime}}</text>
+    </view>
+  </view>
+
+  <!-- 底部区域 -->
+  <view class="bottom-area">
+    <view class="total-row">
+      <text class="total-label">合计：</text>
+      <text class="total-price">¥{{totalAmount}}</text>
+    </view>
+    <view class="pay-btn" bindtap="onPayTap">
+      <text class="pay-btn-text">去支付</text>
+    </view>
+  </view>
+
+  <!-- 支付方式弹窗 -->
+  <view class="modal-mask" wx:if="{{showPayModal}}" bindtap="onCloseModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <text class="modal-title">选择支付方式</text>
+      <view class="pay-method-item {{payMethod === 'wechat' ? 'active' : ''}}" data-method="wechat" bindtap="onSelectPayMethod">
+        <view class="method-left">
+          <view class="method-icon wechat-icon">微</view>
+          <text class="method-name">微信支付</text>
+        </view>
+        <view class="method-check {{payMethod === 'wechat' ? 'checked' : ''}}">
+          <text wx:if="{{payMethod === 'wechat'}}">✓</text>
+        </view>
+      </view>
+      <view class="pay-method-item {{payMethod === 'wallet' ? 'active' : ''}}" data-method="wallet" bindtap="onSelectPayMethod">
+        <view class="method-left">
+          <view class="method-icon wallet-icon">钱</view>
+          <view class="method-info">
+            <text class="method-name">钱包余额</text>
+            <text class="method-desc">余额：¥{{walletBalance}}</text>
+          </view>
+        </view>
+        <view class="method-check {{payMethod === 'wallet' ? 'checked' : ''}}">
+          <text wx:if="{{payMethod === 'wallet'}}">✓</text>
+        </view>
+      </view>
+      <view class="modal-btns">
+        <view class="modal-btn cancel" bindtap="onCancelPay">
+          <text class="modal-btn-text cancel-text">取消</text>
+        </view>
+        <view class="modal-btn confirm" bindtap="onConfirmPay">
+          <text class="modal-btn-text confirm-text">确认支付</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付失败弹窗 -->
+  <view class="modal-mask" wx:if="{{showPayFail}}" bindtap="onCloseFail">
+    <view class="modal-content fail-content" catchtap="stopPropagation">
+      <view class="fail-icon-wrap">
+        <text class="fail-icon">✕</text>
+      </view>
+      <text class="fail-title">支付失败</text>
+      <text class="fail-desc">请稍后重试</text>
+      <view class="fail-btn" bindtap="onRetryPay">
+        <text class="fail-btn-text">重新支付</text>
+      </view>
+    </view>
+  </view>
+
+</view>
