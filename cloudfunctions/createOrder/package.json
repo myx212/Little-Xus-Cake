@@ -1,0 +1,9 @@
+{
+  "name": "createOrder",
+  "version": "1.0.0",
+  "description": "订单相关操作（创建、查询、更新状态、删除）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

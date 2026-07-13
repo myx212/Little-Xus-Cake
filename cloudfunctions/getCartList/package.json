@@ -1,0 +1,9 @@
+{
+  "name": "getCartList",
+  "version": "1.0.0",
+  "description": "购物车相关操作（查询、更新、删除、添加）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
