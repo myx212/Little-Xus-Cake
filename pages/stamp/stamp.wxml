@@ -1,17 +1,17 @@
-<!--pages/stamp/stamp.wxml-->
+﻿<!--pages/stamp/stamp.wxml-->
 <view class="stamp-page">
 
   <!-- 顶部插画区 -->
   <view class="header-area">
     <view class="header-decor-left">
-      <image class="stamp-icon" src="/images/cake/one.png" mode="aspectFit" />
+      <image class="stamp-icon" src="/images/cake/one.jpg" mode="aspectFit" />
     </view>
     <view class="header-content">
       <text class="header-title">集章领礼券</text>
       <text class="header-sub">集满6个杯章，即可获得任意券</text>
     </view>
     <view class="header-decor-right">
-      <image class="coffee-icon" src="/images/cake/two.png" mode="aspectFit" />
+      <image class="coffee-icon" src="/images/cake/two.jpg" mode="aspectFit" />
     </view>
   </view>
 

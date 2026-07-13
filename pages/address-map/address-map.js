@@ -1,4 +1,4 @@
-// pages/address-map/address-map.js
+﻿// pages/address-map/address-map.js
 Page({
   data: {
     longitude: 118.6757,
@@ -83,7 +83,7 @@ Page({
         id: 1,
         longitude: longitude,
         latitude: latitude,
-        iconPath: '/images/home/cart.png',
+        iconPath: '/images/home/cart.jpg',
         width: 30,
         height: 30
       }]
@@ -224,7 +224,7 @@ Page({
             id: 1,
             longitude: addr.longitude,
             latitude: addr.latitude,
-            iconPath: '/images/home/cart.png',
+            iconPath: '/images/home/cart.jpg',
             width: 30,
             height: 30
           }],

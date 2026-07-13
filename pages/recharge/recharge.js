@@ -102,7 +102,7 @@ Page({
               lastRecharge: db.serverDate()
             },
             success: function () {
-              // 记录充值记录
+              // 记录充值记录（集合不存在时静默失败）
               db.collection('recharge_records').add({
                 data: {
                   openid: openid,
@@ -111,6 +111,9 @@ Page({
                   totalAmount: totalAmount,
                   points: amount,
                   createTime: db.serverDate()
+                },
+                fail: function () {
+                  // 集合不存在时忽略，不影响充值主流程
                 }
               });
 

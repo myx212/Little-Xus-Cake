@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Xu's Cake</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #FFF8F0;
+      color: #5C3D2E;
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(135deg, #D4A574 0%, #E8C9A0 100%);
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .header p {
+      font-size: 1.1em;
+      color: rgba(255,255,255,0.9);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(92,61,46,0.08);
+    }
+    .section h2 {
+      font-size: 1.4em;
+      margin-bottom: 16px;
+      color: #8B6914;
+      border-bottom: 2px solid #F0E6D3;
+      padding-bottom: 12px;
+    }
+    .section p, .section li {
+      line-height: 1.8;
+      color: #6B5B4F;
+      font-size: 1.05em;
+    }
+    .section ul {
+      padding-left: 20px;
+    }
+    .section li {
+      margin-bottom: 8px;
+    }
+    .qr-section {
+      text-align: center;
+    }
+    .qr-section img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      border: 3px solid #F0E6D3;
+      margin: 16px 0;
+    }
+    .qr-section .hint {
+      color: #999;
+      font-size: 0.95em;
+      margin-top: 8px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .feature-card {
+      background: #FFF8F0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .feature-card .icon {
+      font-size: 2em;
+      margin-bottom: 8px;
+    }
+    .feature-card h3 {
+      font-size: 1em;
+      color: #8B6914;
+      margin-bottom: 4px;
+    }
+    .feature-card p {
+      font-size: 0.9em;
+      color: #999;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tech-tag {
+      background: #F0E6D3;
+      color: #8B6914;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9em;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #bbb;
+      font-size: 0.9em;
+    }
+    .footer a {
+      color: #D4A574;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Little Xu's Cake</h1>
+    <p>小徐的蛋糕 · 甜品烘焙微信小程序</p>
+  </div>
+
+  <div class="container">
+
+    <!-- 体验入口 -->
+    <div class="section qr-section">
+      <h2>扫码体验</h2>
+      <p>使用微信扫描下方二维码，即可在手机上体验小程序</p>
+      <img src="qrcode.png" alt="小程序体验版二维码">
+      <p class="hint">请使用微信扫一扫扫码 · 体验版有效期至 2026年7月21日</p>
+    </div>
+
+    <!-- 项目简介 -->
+    <div class="section">
+      <h2>项目简介</h2>
+      <p>Little Xu's Cake 是一款面向甜品烘焙店的微信小程序，提供在线点餐、AI 智能推荐、积分兑换等一站式服务。用户可以选择堂食、自提或外卖三种配送方式，浏览丰富的蛋糕、面包、饮品等商品，并通过 AI 甜品顾问获得个性化的推荐。</p>
+    </div>
+
+    <!-- 核心功能 -->
+    <div class="section">
+      <h2>核心功能</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="icon">🛒</div>
+          <h3>在线点餐</h3>
+          <p>堂食/自提/外卖</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>AI 甜品顾问</h3>
+          <p>智能推荐+语音输入</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⭐</div>
+          <h3>积分兑换</h3>
+          <p>消费积分换礼品</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon"></div>
+          <h3>地图定位</h3>
+          <p>门店导航</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📋</div>
+          <h3>订单管理</h3>
+          <p>实时查看订单状态</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💳</div>
+          <h3>在线支付</h3>
+          <p>微信支付</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技术栈 -->
+    <div class="section">
+      <h2>技术栈</h2>
+      <div class="tech-tags">
+        <span class="tech-tag">微信小程序</span>
+        <span class="tech-tag">微信云开发</span>
+        <span class="tech-tag">云函数</span>
+        <span class="tech-tag">云数据库</span>
+        <span class="tech-tag">云存储</span>
+        <span class="tech-tag">WXML / WXSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Git</span>
+      </div>
+    </div>
+
+    <!-- 项目结构 -->
+    <div class="section">
+      <h2>项目结构</h2>
+      <ul>
+        <li><strong>首页</strong> — 店铺展示、AI 顾问入口、场景选择</li>
+        <li><strong>点餐页</strong> — 商品分类浏览、购物车、下单</li>
+        <li><strong>AI 点餐</strong> — 对话式 AI 推荐、语音输入</li>
+        <li><strong>订单页</strong> — 订单列表、订单详情、状态跟踪</li>
+        <li><strong>个人中心</strong> — 用户信息、积分、地址管理</li>
+        <li><strong>积分商城</strong> — 积分兑换礼品</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Little Xu's Cake &copy; 2026 | <a href="https://github.com/xumengyi0311/Cake甜品烘焙微信小程序" target="_blank">GitHub 仓库</a></p>
+  </div>
+
+</body>
+</html>

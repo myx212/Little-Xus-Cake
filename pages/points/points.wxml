@@ -1,4 +1,4 @@
-<!--pages/points/points.wxml-->
+﻿<!--pages/points/points.wxml-->
 <view class="points-page">
 
   <!-- 顶部Banner -->
@@ -12,7 +12,7 @@
   <!-- 用户积分卡片 -->
   <view class="points-card">
     <view class="user-info">
-      <image class="user-avatar" src="{{userInfo.avatarUrl || '/images/home/cart.png'}}" mode="aspectFill" />
+      <image class="user-avatar" src="{{userInfo.avatarUrl || '/images/home/cart.jpg'}}" mode="aspectFill" />
       <view class="points-info">
         <text class="points-label">积分</text>
         <text class="points-value">{{totalPoints}}</text>

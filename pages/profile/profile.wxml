@@ -1,16 +1,16 @@
-<!--pages/profile/profile.wxml-->
+﻿<!--pages/profile/profile.wxml-->
 <view class="profile-page">
 
   <!-- 顶部区域 -->
   <view class="banner-area">
     
-    <image class="banner-image" src="/images/home/banner-two.png" mode="widthFix" />
+    <image class="banner-image" src="/images/home/banner-two.jpg" mode="widthFix" />
   </view>
 
   <!-- 用户信息卡片 -->
   <view class="user-card">
     <view class="user-avatar-wrap" bindtap="onChooseAvatar">
-      <image class="user-avatar" src="{{avatar || '/images/home/login.png'}}" mode="aspectFill" />
+      <image class="user-avatar" src="{{avatar || '/images/home/login.jpg'}}" mode="aspectFill" />
     </view>
     <view class="user-stats">
       <view class="nickname-edit" bindtap="onEditNickname">

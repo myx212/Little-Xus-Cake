@@ -1,4 +1,4 @@
-<!--pages/goods-detail/goods-detail.wxml-->
+﻿<!--pages/goods-detail/goods-detail.wxml-->
 <view class="detail-page">
 
   <!-- 商品大图 -->
@@ -57,7 +57,7 @@
           <text class="icon-label">分享</text>
         </view>
         <view class="icon-item icon-item-cart" bindtap="onGoCart">
-          <image class="cart-icon-img" src="/images/home/cart.png" mode="aspectFit" />
+          <image class="cart-icon-img" src="/images/home/cart.jpg" mode="aspectFit" />
           <view class="cart-badge" wx:if="{{cartTotal > 0}}">{{cartTotal > 99 ? '99+' : cartTotal}}</view>
           <text class="icon-label">购物车</text>
         </view>

@@ -1,4 +1,4 @@
-<!--pages/ai-order/ai-order.wxml-->
+﻿<!--pages/ai-order/ai-order.wxml-->
 <view class="page-container">
 
   <!-- 聊天区域 -->
@@ -6,7 +6,7 @@
 
     <!-- AI 欢迎消息 -->
     <view class="message ai-message" id="msg-0">
-      <image class="ai-avatar" src="/images/ai/ai.png" mode="aspectFit" />
+      <image class="ai-avatar" src="/images/ai/ai.jpg" mode="aspectFit" />
       <view class="ai-bubble">
         <text class="bubble-text">嗨~</text>
         <text class="bubble-text">今儿想吃点什么呢？</text>
@@ -42,7 +42,7 @@
 
     <!-- AI 回复场景选择 -->
     <view class="message ai-message" wx:if="{{step >= 2}}" id="msg-2">
-      <image class="ai-avatar" src="/images/ai/ai.png" mode="aspectFit" />
+      <image class="ai-avatar" src="/images/ai/ai.jpg" mode="aspectFit" />
       <view class="ai-bubble">
         <text class="bubble-text">好的！</text>
         <text class="bubble-text">你更喜欢什么口味呢？</text>
@@ -82,7 +82,7 @@
 
     <!-- AI 回复口味选择 -->
     <view class="message ai-message" wx:if="{{step >= 3}}" id="msg-4">
-      <image class="ai-avatar" src="/images/ai/ai.png" mode="aspectFit" />
+      <image class="ai-avatar" src="/images/ai/ai.jpg" mode="aspectFit" />
       <view class="ai-bubble">
         <text class="bubble-text">了解了！</text>
         <text class="bubble-text">预算大概是多少呢？</text>
@@ -118,7 +118,7 @@
 
     <!-- AI 思考中 -->
     <view class="message ai-message" wx:if="{{step === 4}}" id="msg-6">
-      <image class="ai-avatar" src="/images/ai/ai.png" mode="aspectFit" />
+      <image class="ai-avatar" src="/images/ai/ai.jpg" mode="aspectFit" />
       <view class="ai-bubble thinking-bubble">
         <view class="thinking-dots">
           <view class="dot"></view>
@@ -130,7 +130,7 @@
 
     <!-- AI 推荐结果 -->
     <view class="message ai-message" wx:if="{{step >= 5}}" id="msg-7">
-      <image class="ai-avatar" src="/images/ai/ai.png" mode="aspectFit" />
+      <image class="ai-avatar" src="/images/ai/ai.jpg" mode="aspectFit" />
       <view class="ai-bubble">
         <text class="bubble-text">根据你的喜好，</text>
         <text class="bubble-text">为你推荐以下甜品~</text>

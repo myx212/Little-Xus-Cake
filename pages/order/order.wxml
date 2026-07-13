@@ -1,4 +1,4 @@
-<!--pages/order/order.wxml-->
+﻿<!--pages/order/order.wxml-->
 <view class="order-page">
 
   <!-- 顶部店铺信息 -->
@@ -6,7 +6,7 @@
     <!-- 背景大图 -->
     <image
       class="shop-banner"
-      src="/images/home/banner.png"
+      src="/images/home/banner.jpg"
       mode="aspectFill"
     />
 

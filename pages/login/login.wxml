@@ -1,8 +1,8 @@
-<!--pages/login/login.wxml-->
+﻿<!--pages/login/login.wxml-->
 <view class="login-page">
 
   <!-- 全屏背景图 -->
-  <image class="bg-image" src="/images/home/login.png" mode="aspectFill" />
+  <image class="bg-image" src="/images/home/login.jpg" mode="aspectFill" />
 
   <!-- 右上角小标 -->
   <view class="corner-badge">

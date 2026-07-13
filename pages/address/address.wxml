@@ -1,10 +1,10 @@
-<!--pages/address/address.wxml-->
+﻿<!--pages/address/address.wxml-->
 <view class="address-page">
 
   <!-- 空状态 -->
   <view class="empty-area" wx:if="{{addressList.length === 0}}">
     <view class="empty-icon-wrap">
-      <image class="stamp-icon" src="/images/home/address.png" mode="aspectFit" />
+      <image class="stamp-icon" src="/images/home/address.jpg" mode="aspectFit" />
     </view>
     <text class="empty-text">暂无地址信息，点击添加地址</text>
     <view class="add-btn" bindtap="onAddAddress">

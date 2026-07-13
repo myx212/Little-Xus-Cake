@@ -1,4 +1,4 @@
-// pages/profile/profile.js
+﻿// pages/profile/profile.js
 var QRCode = require('../../utils/qrcode.js');
 
 Page({

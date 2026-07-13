@@ -1,4 +1,4 @@
-<!--pages/ai-pay-success/ai-pay-success.wxml-->
+﻿<!--pages/ai-pay-success/ai-pay-success.wxml-->
 <view class="page-container">
 
   <!-- 成功图标（粉色圆+白勾） -->
@@ -20,7 +20,7 @@
 
   <!-- AI 插画 -->
   <view class="ai-mascot-wrap">
-    <image class="ai-mascot" src="/images/ai/success.png" mode="aspectFit" />
+    <image class="ai-mascot" src="/images/ai/success.jpg" mode="aspectFit" />
     <view class="heart heart-1">❤</view>
     <view class="heart heart-2">❤</view>
   </view>

@@ -4,7 +4,28 @@
   "libVersion": "2.32.3",
   "cloudfunctionRoot": "cloudfunctions/",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "value": "screenshots",
+        "type": "folder"
+      },
+      {
+        "value": "prompt_log.md",
+        "type": "file"
+      },
+      {
+        "value": "个人实训总结报告.md",
+        "type": "file"
+      },
+      {
+        "value": "API.md",
+        "type": "file"
+      },
+      {
+        "value": "package-lock.json",
+        "type": "file"
+      }
+    ],
     "include": []
   },
   "setting": {

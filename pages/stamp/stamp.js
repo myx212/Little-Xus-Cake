@@ -1,15 +1,15 @@
-// pages/stamp/stamp.js
+﻿// pages/stamp/stamp.js
 Page({
   data: {
     collectedCount: 0,
     currentRecordTab: 'stamp',
     badges: [
-      { image: '/images/cake/one.png', collected: false },
-      { image: '/images/cake/two.png', collected: false },
-      { image: '/images/cake/three.png', collected: false },
-      { image: '/images/cake/four.png', collected: false },
-      { image: '/images/cake/five.png', collected: false },
-      { image: '/images/cake/six.png', collected: false }
+      { image: '/images/cake/one.jpg', collected: false },
+      { image: '/images/cake/two.jpg', collected: false },
+      { image: '/images/cake/three.jpg', collected: false },
+      { image: '/images/cake/four.jpg', collected: false },
+      { image: '/images/cake/five.jpg', collected: false },
+      { image: '/images/cake/six.jpg', collected: false }
     ],
     stampRecords: [],
     exchangeRecords: []

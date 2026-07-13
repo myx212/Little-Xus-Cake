@@ -152,25 +152,24 @@ Page({
     }
   },
 
-  // 更新数量到云数据库
+  // 更新数量到云数据库（通过云函数）
   updateQty: function (id, delta) {
     var that = this;
-    var db = wx.cloud.database();
 
-    db.collection('cart')
-      .doc(id)
-      .update({
-        data: {
-          quantity: db.command.inc(delta),
-          updateTime: db.serverDate()
-        },
-        success: function () {
-          that.loadCartList();
-        },
-        fail: function () {
-          wx.showToast({ title: '更新失败', icon: 'none' });
-        }
-      });
+    wx.cloud.callFunction({
+      name: 'getCartList',
+      data: {
+        action: 'updateQty',
+        id: id,
+        delta: delta
+      },
+      success: function () {
+        that.loadCartList();
+      },
+      fail: function () {
+        wx.showToast({ title: '更新失败', icon: 'none' });
+      }
+    });
   },
 
   // 计算总价和选中数量

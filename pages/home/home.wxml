@@ -5,12 +5,12 @@
   <view class="brand-area">
     <image
       class="brand-logo"
-      src="/images/home/logo.png"
+      src="/images/home/logo.jpg"
       mode="aspectFit"
     />
     <image
       class="brand-decor"
-      src="/images/home/decor_kitchen_tools.png"
+      src="/images/home/decor_kitchen_tools.jpg"
       mode="aspectFit"
     />
   </view>
@@ -19,7 +19,7 @@
   <view class="illustration-area">
     <image
       class="illustration-img"
-      src="/images/home/illustration_bakery.png"
+      src="/images/home/illustration_bakery.jpg"
       mode="widthFix"
     />
   </view>
@@ -33,7 +33,7 @@
           <text class="card-btn-text">点击查看 ></text>
         </view>
       </view>
-      <image class="card-image" src="/images/home/account.png" mode="aspectFit" />
+      <image class="card-image" src="/images/home/account.jpg" mode="aspectFit" />
       <view class="card-brand">
         <text class="card-brand-text">Little Xu's Cake</text>
       </view>
@@ -45,7 +45,7 @@
           <text class="card-btn-text">点击查看 ></text>
         </view>
       </view>
-      <image class="card-image" src="/images/home/icon.png" mode="aspectFit" />
+      <image class="card-image" src="/images/home/icon.jpg" mode="aspectFit" />
       <view class="card-brand">
         <text class="card-brand-text">Little Xu's Cake</text>
       </view>
@@ -57,7 +57,7 @@
     <view class="func-btn" bindtap="onFuncTap" data-type="dineIn">
       <image
         class="func-icon"
-        src="/images/home/btn_dine_in.png"
+        src="/images/home/btn_dine_in.jpg"
         mode="aspectFit"
       />
       <text class="func-title">堂食扫码</text>
@@ -66,7 +66,7 @@
     <view class="func-btn" bindtap="onFuncTap" data-type="pickUp">
       <image
         class="func-icon"
-        src="/images/home/btn_pick_up.png"
+        src="/images/home/btn_pick_up.jpg"
         mode="aspectFit"
       />
       <text class="func-title">自提</text>
@@ -75,7 +75,7 @@
     <view class="func-btn" bindtap="onFuncTap" data-type="deliver">
       <image
         class="func-icon"
-        src="/images/home/btn_deliver.png"
+        src="/images/home/btn_deliver.jpg"
         mode="aspectFit"
       />
       <text class="func-title">外卖</text>
@@ -98,14 +98,14 @@
       <text class="vip-subtitle">Cafe & Bakery</text>
       <text class="vip-big">VIP</text>
     </view>
-    <image class="vip-image" src="/images/gift/gift6.png" mode="aspectFit" />
+    <image class="vip-image" src="/images/gift/gift6.jpg" mode="aspectFit" />
   </view> -->
 
   <!-- 店铺插画区 -->
   <view class="store-illustration-area">
     <image
       class="store-illustration-img"
-      src="/images/home/banner-bottom.png"
+      src="/images/home/banner-bottom.jpg"
       mode="widthFix"
     />
     <view class="store-text-area">

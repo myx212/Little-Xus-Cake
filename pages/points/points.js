@@ -1,4 +1,4 @@
-// pages/points/points.js
+﻿// pages/points/points.js
 Page({
   data: {
     totalPoints: 0,
@@ -201,12 +201,12 @@ Page({
         // 模拟商品数据
         that.setData({
           products: [
-            { _id: '1', name: '玫瑰香草千层', price: 13, needPoints: 100, image: '/images/gift/gift1.png' },
-            { _id: '2', name: '巧克力蛋仔', price: 19, needPoints: 100, image: '/images/gift/gift2.png' },
-            { _id: '3', name: '草莓奶油蛋糕', price: 28, needPoints: 200, image: '/images/gift/gift3.png' },
-            { _id: '4', name: '蓝莓芝士蛋糕', price: 32, needPoints: 250, image: '/images/gift/gift4.png' },
-            { _id: '5', name: '抹茶红豆卷', price: 22, needPoints: 150, image: '/images/gift/gift5.png' },
-            { _id: '6', name: '焦糖布丁', price: 15, needPoints: 120, image: '/images/gift/gift6.png' }
+            { _id: '1', name: '玫瑰香草千层', price: 13, needPoints: 100, image: '/images/gift/gift1.jpg' },
+            { _id: '2', name: '巧克力蛋仔', price: 19, needPoints: 100, image: '/images/gift/gift2.jpg' },
+            { _id: '3', name: '草莓奶油蛋糕', price: 28, needPoints: 200, image: '/images/gift/gift3.jpg' },
+            { _id: '4', name: '蓝莓芝士蛋糕', price: 32, needPoints: 250, image: '/images/gift/gift4.jpg' },
+            { _id: '5', name: '抹茶红豆卷', price: 22, needPoints: 150, image: '/images/gift/gift5.jpg' },
+            { _id: '6', name: '焦糖布丁', price: 15, needPoints: 120, image: '/images/gift/gift6.jpg' }
           ]
         });
       }

@@ -1,11 +1,11 @@
-<!--pages/recharge/recharge.wxml-->
+﻿<!--pages/recharge/recharge.wxml-->
 <view class="page-container">
 
   <!-- 顶部 Banner -->
   <view class="recharge-banner">
     <text class="banner-title">会员充值</text>
     <text class="banner-sub">充值享优惠，积分加倍送</text>
-    <image class="banner-image" src="/images/gift/gift3.png" mode="aspectFit" />
+    <image class="banner-image" src="/images/gift/gift3.jpg" mode="aspectFit" />
   </view>
 
   <!-- 当前余额 -->
