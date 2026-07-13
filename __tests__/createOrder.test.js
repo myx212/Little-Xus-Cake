@@ -3,35 +3,6 @@
  * 测试范围：金额计算、参数校验、订单号生成、多商品合并
  */
 
-// 模拟 wx-server-sdk
-const mockAdd = jest.fn()
-const mockDoc = jest.fn(() => ({
-  get: jest.fn(),
-  update: jest.fn(),
-  remove: jest.fn()
-}))
-const mockWhere = jest.fn(() => ({
-  get: jest.fn(),
-  orderBy: jest.fn(() => ({ get: jest.fn() }))
-}))
-const mockCollection = jest.fn(() => ({
-  add: mockAdd,
-  doc: mockDoc,
-  where: mockWhere
-}))
-const mockServerDate = jest.fn(() => new Date())
-const mockCommand = { inc: jest.fn((n) => ({ __inc: n })) }
-
-jest.mock('wx-server-sdk', () => ({
-  init: jest.fn(),
-  DYNAMIC_CURRENT_ENV: 'env-test',
-  database: jest.fn(() => ({
-    collection: mockCollection,
-    command: mockCommand,
-    serverDate: mockServerDate
-  }))
-}))
-
 // 提取核心计算逻辑（独立于云函数框架）
 function calculateOrderTotal(goodsList, deliveryFee) {
   let goodsTotal = 0

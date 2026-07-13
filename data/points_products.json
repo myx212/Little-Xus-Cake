@@ -1,6 +1,6 @@
-{"name": "玫瑰香草千层", "price": 13, "needPoints": 100, "image": "/images/gift/gift1.png", "description": "层层酥皮搭配玫瑰香草奶油，口感细腻", "stock": 50}
-{"name": "巧克力蛋仔", "price": 19, "needPoints": 100, "image": "/images/gift/gift2.png", "description": "浓郁巧克力风味，外酥内软", "stock": 30}
-{"name": "草莓奶油蛋糕", "price": 28, "needPoints": 200, "image": "/images/gift/gift3.png", "description": "新鲜草莓搭配轻盈奶油，甜蜜可口", "stock": 20}
-{"name": "蓝莓芝士蛋糕", "price": 32, "needPoints": 250, "image": "/images/gift/gift4.png", "description": "进口芝士搭配新鲜蓝莓，酸甜平衡", "stock": 15}
-{"name": "抹茶红豆卷", "price": 22, "needPoints": 150, "image": "/images/gift/gift5.png", "description": "日式抹茶蛋糕卷，内含红豆颗粒", "stock": 25}
-{"name": "焦糖布丁", "price": 15, "needPoints": 120, "image": "/images/gift/gift6.png", "description": "法式焦糖布丁，入口即化", "stock": 40}
+﻿{"name": "玫瑰香草千层", "price": 13, "needPoints": 100, "image": "/images/gift/gift1.jpg", "description": "层层酥皮搭配玫瑰香草奶油，口感细腻", "stock": 50}
+{"name": "巧克力蛋仔", "price": 19, "needPoints": 100, "image": "/images/gift/gift2.jpg", "description": "浓郁巧克力风味，外酥内软", "stock": 30}
+{"name": "草莓奶油蛋糕", "price": 28, "needPoints": 200, "image": "/images/gift/gift3.jpg", "description": "新鲜草莓搭配轻盈奶油，甜蜜可口", "stock": 20}
+{"name": "蓝莓芝士蛋糕", "price": 32, "needPoints": 250, "image": "/images/gift/gift4.jpg", "description": "进口芝士搭配新鲜蓝莓，酸甜平衡", "stock": 15}
+{"name": "抹茶红豆卷", "price": 22, "needPoints": 150, "image": "/images/gift/gift5.jpg", "description": "日式抹茶蛋糕卷，内含红豆颗粒", "stock": 25}
+{"name": "焦糖布丁", "price": 15, "needPoints": 120, "image": "/images/gift/gift6.jpg", "description": "法式焦糖布丁，入口即化", "stock": 40}

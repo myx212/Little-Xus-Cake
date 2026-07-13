@@ -11,7 +11,34 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
-const logger = require('../common/logger')
+const logger = {
+  info(funcName, action, message, data) {
+    const log = { timestamp: new Date().toISOString(), level: 'INFO', funcName, action: action || 'unknown', message }
+    if (data !== undefined) log.data = data
+    console.log(JSON.stringify(log))
+  },
+  warn(funcName, action, message, data) {
+    const log = { timestamp: new Date().toISOString(), level: 'WARN', funcName, action: action || 'unknown', message }
+    if (data !== undefined) log.data = data
+    console.warn(JSON.stringify(log))
+  },
+  error(funcName, action, message, err) {
+    const log = { timestamp: new Date().toISOString(), level: 'ERROR', funcName, action: action || 'unknown', message }
+    if (err) { log.errorMessage = err.message; log.errorStack = err.stack }
+    console.error(JSON.stringify(log))
+  },
+  async wrap(funcName, action, handler) {
+    try {
+      this.info(funcName, action, 'request start')
+      const result = await handler()
+      this.info(funcName, action, 'request success', { code: result && result.code })
+      return result
+    } catch (err) {
+      this.error(funcName, action, 'request failed', err)
+      return { code: -1, message: '服务器内部错误', error: err.message }
+    }
+  }
+}
 const db = cloud.database()
 const _ = db.command
 

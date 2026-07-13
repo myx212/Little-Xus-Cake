@@ -1,4 +1,4 @@
-<!--components/custom-tabbar/custom-tabbar.wxml-->
+﻿<!--components/custom-tabbar/custom-tabbar.wxml-->
 <view class="bottom-banner">
   <view class="banner-text">
     <text class="banner-stars">+  Xu's  +</text>
@@ -6,7 +6,7 @@
   </view>
   <image
     class="banner-decor"
-    src="/images/home/logo.png"
+    src="/images/home/logo.jpg"
     mode="aspectFit"
   />
 </view>
@@ -21,7 +21,7 @@
     >
       <image
         class="tab-icon"
-        src="/images/home/tabbar_home.png"
+        src="/images/home/tabbar_home.jpg"
         mode="aspectFit"
       />
       <text class="tab-label">首页</text>
@@ -34,7 +34,7 @@
     >
       <image
         class="tab-icon"
-        src="/images/home/tabbar_order.png"
+        src="/images/home/tabbar_order.jpg"
         mode="aspectFit"
       />
       <text class="tab-label">点餐</text>
@@ -47,7 +47,7 @@
     >
       <image
         class="tab-icon"
-        src="/images/home/tabbar_list.png"
+        src="/images/home/tabbar_list.jpg"
         mode="aspectFit"
       />
       <text class="tab-label">订单</text>
@@ -60,7 +60,7 @@
     >
       <image
         class="tab-icon"
-        src="/images/home/tabbar_profile.png"
+        src="/images/home/tabbar_profile.jpg"
         mode="aspectFit"
       />
       <text class="tab-label">个人中心</text>
