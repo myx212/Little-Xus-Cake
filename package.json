@@ -16,6 +16,9 @@
     "testEnvironment": "node",
     "testMatch": ["**/__tests__/**/*.test.js"],
     "collectCoverageFrom": ["cloudfunctions/**/*.js"],
-    "coverageDirectory": "coverage"
+    "coverageDirectory": "coverage",
+    "moduleNameMapper": {
+      "^wx-server-sdk$": "<rootDir>/__mocks__/wx-server-sdk.js"
+    }
   }
 }
