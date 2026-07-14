@@ -560,17 +560,17 @@ wx.cloud.callFunction({
 
 ### 8.1 项目截图
 
-> 以下为小程序主要页面截图（实际使用时替换为真实截图）
+> 以下为小程序主要页面截图
 
 | 页面 | 截图 | 说明 |
 |------|------|------|
-| 首页 | ![首页](images/home/home.png) | Banner 轮播 + 分类导航 + AI 顾问入口 |
-| 商品列表 | ![商品列表](images/cake/cake1.png) | Tab 分类筛选 + 商品卡片 |
-| 商品详情 | ![商品详情](images/cake/cake2.png) | 图片轮播 + 规格选择 + 加入购物车 |
-| 购物车 | ![购物车](images/cake/cake3.png) | 商品列表 + 数量调整 + 结算 |
+| 首页 | ![首页](images/home/index.jpg) | Banner 轮播 + 分类导航 + AI 顾问入口 |
+| 商品列表 | ![商品列表](images/home/order.jpg) | Tab 分类筛选 + 商品卡片 |
+| 商品详情 | ![商品详情](images/home/detail.jpg) | 图片轮播 + 规格选择 + 加入购物车 |
+| 购物车 | ![购物车](images/home/cartPage.jpg) | 商品列表 + 数量调整 + 结算 |
 | AI 顾问 | ![AI 顾问](images/ai/new.png) | 三步引导 + 文字交互 + 智能推荐 |
-| 订单列表 | ![订单列表](images/home/home.png) | 6 状态 Tab + 多商品卡片渲染 |
-| 个人中心 | ![个人中心](images/home/home.png) | 用户信息 + 钱包/积分/集点入口 |
+| 订单列表 | ![订单列表](images/home/list.jpg) | 6 状态 Tab + 多商品卡片渲染 |
+| 个人中心 | ![个人中心](images/home/mine.jpg) | 用户信息 + 钱包/积分/集点入口 |
 
 ### 8.2 部署后的 URL / 可访问方式
 
