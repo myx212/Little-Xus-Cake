@@ -568,7 +568,7 @@ wx.cloud.callFunction({
 | 商品列表 | ![商品列表](images/home/order.jpg) | Tab 分类筛选 + 商品卡片 |
 | 商品详情 | ![商品详情](images/home/detail.jpg) | 图片轮播 + 规格选择 + 加入购物车 |
 | 购物车 | ![购物车](images/home/cartPage.jpg) | 商品列表 + 数量调整 + 结算 |
-| AI 顾问 | ![AI 顾问](images/ai/new.png) | 三步引导 + 文字交互 + 智能推荐 |
+| AI 顾问 | ![AI 顾问](images/home/candy.jpg) | 三步引导 + 文字交互 + 智能推荐 |
 | 订单列表 | ![订单列表](images/home/list.jpg) | 6 状态 Tab + 多商品卡片渲染 |
 | 个人中心 | ![个人中心](images/home/mine.jpg) | 用户信息 + 钱包/积分/集点入口 |
 
